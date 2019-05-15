@@ -12,7 +12,6 @@ namespace DataLayer
     public static class ProductDB
     {
 
-
         public static List<Products> GetProduct(int ProdId)
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
@@ -40,11 +39,9 @@ namespace DataLayer
                 connection.Close();
             }
 
-
             return s;
 
         }
-
 
         public static int AddProduct(string ProdName)
         {

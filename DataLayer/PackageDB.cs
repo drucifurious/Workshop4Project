@@ -12,33 +12,7 @@ namespace DataLayer
 
     public static class PackageDB
     {
-        public static List<Packages> GetPackages()
-        {
-            SqlConnection connection = TRAExpertsDB.GetConnection();
-            List<Packages> results = new List<Packages>();
-            try
-            {
-                string sql = "SELECT PackageId, PkgName FROM Packages";
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                while (reader.Read())
-                {
-                    Packages s = new Packages();
-
-                    s.PkgName = reader["PkgName"].ToString();
-                    s.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
-                    // results.Add(s);
-                }
-            }
-            catch { }
-
-            finally
-            {
-                connection.Close();
-            }
-            return results;
-
-        }
+   
 
         public static Packages GetPackage(int PkgId)
         {
