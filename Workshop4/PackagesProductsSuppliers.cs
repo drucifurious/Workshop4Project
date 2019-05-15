@@ -16,5 +16,10 @@ namespace Workshop4
         {
             InitializeComponent();
         }
+
+        private void PackagesProductsSuppliers_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
