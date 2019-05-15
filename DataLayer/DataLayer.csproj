@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="PackageDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PuductDB.cs" />
     <Compile Include="SupplierDB.cs" />
     <Compile Include="TRAExpertsDB.cs" />
   </ItemGroup>
