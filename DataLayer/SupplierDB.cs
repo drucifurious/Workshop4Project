@@ -45,8 +45,7 @@ namespace DataLayer
             try
             {
                 string sql = "SELECT SupplierId, SupName " + 
-                    "FROM Suppliers " +
-                    "WHERE SupplierID =" + ID;
+                    " FROM Suppliers " +" WHERE SupplierId =" + ID;
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -72,9 +71,9 @@ namespace DataLayer
 
         public static int AddSupplier(string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + "(SupName)" +
-                 "VALUES" +
-                 "(@SupName)";
+            string sql = "INSERT INTO Suppliers" + " (SupName)" +
+                 " VALUES" +
+                 " (@SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
@@ -89,7 +88,7 @@ namespace DataLayer
         }
         public static int DeleSupplier(int SupId)
         {
-            string sql = "Delete Suppliers where SupplierID=" + SupId;
+            string sql = "Delete Suppliers where SupplierId=" + SupId;
 
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
@@ -103,9 +102,9 @@ namespace DataLayer
         {
             //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
 
-            //  "(@SupName)"+ "where SupplierID ="+ID;
+            //  "(@SupName)"+ "where SupplierId ="+ID;
 
-            string sql = "UPDATE  Suppliers  SET Name=@Name, Address=@Address, City=@City, State=@State, ZipCode=@ZipCode  where SupplierID =" + ID;
+            string sql = "UPDATE  Suppliers  SET SupName=@SupName" + ID;
 
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
