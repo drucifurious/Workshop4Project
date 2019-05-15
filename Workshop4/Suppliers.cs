@@ -31,7 +31,7 @@ namespace Workshop4
 
         private void Suppliers_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+            dataGridView1.DataSource = DataLayer.SupplierDB.GetSupplier();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

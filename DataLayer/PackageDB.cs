@@ -9,10 +9,44 @@ using BusinessLayer;
 
 namespace DataLayer
 {
-
     public static class PackageDB
     {
-   
+        public static List<Packages>GetPackages()
+    {
+        SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
+        List<Packages> results = new List<Packages>();
+
+        try
+        {
+
+            string sql = "SELECT * FROM Packages ";
+            SqlCommand command = new SqlCommand(sql, connection);
+            SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+            while (reader.Read())
+            {
+                Packages s = new Packages();
+                s.PkgName = reader["PkgName"].ToString();
+                s.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
+                s.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
+                s.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
+                s.PkgDesc = reader["PkgDesc"].ToString();
+                s.PkgBasePrice = Convert.ToDouble(reader["PkgBasePrice"].ToString());
+                s.PkgAgencyCommission = Convert.ToDouble(reader["PkgAgencyCommission"].ToString());
+
+                results.Add(s);
+
+            }
+        }
+        catch { }
+        finally
+        {
+            connection.Close();
+        }
+
+        return results;
+
+    }
+
 
         public static Packages GetPackage(int PkgId)
         {
@@ -32,8 +66,8 @@ namespace DataLayer
                     s.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
                     s.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
                     s.PkgDesc = reader["PkgDesc"].ToString();
-                    s.PkgBasePrice = Convert.ToInt32(reader["PkgBasePrice"].ToString());
-                    s.PkgAgencyCommission = Convert.ToInt32(reader["PkgAgencyCommission"].ToString());
+                    s.PkgBasePrice = Convert.ToDouble(reader["PkgBasePrice"].ToString());
+                    s.PkgAgencyCommission = Convert.ToDouble(reader["PkgAgencyCommission"].ToString());
 
                 }
             }
