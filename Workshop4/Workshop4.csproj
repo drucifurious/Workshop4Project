@@ -90,6 +90,12 @@
     <EmbeddedResource Include="Packages.resx">
       <DependentUpon>Packages.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PackagesProductsSuppliers.resx">
+      <DependentUpon>PackagesProductsSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductsSuppliers.resx">
+      <DependentUpon>ProductsSuppliers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
