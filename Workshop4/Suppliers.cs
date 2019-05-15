@@ -23,7 +23,7 @@ namespace Workshop4
         {
             int ID = Convert.ToInt32(textBox1.Text);
             Supplier supp = new Supplier();
-            supp = DataLayer.SupplierDB.GetSupplier(ID);
+            supp = DataLayer.SupplierDB.GetSuppliers(ID);
 
             label3.Text = supp.SupplierId.ToString();
             label4.Text = supp.SupName;
@@ -31,7 +31,7 @@ namespace Workshop4
 
         private void Suppliers_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DataLayer.SupplierDB.GetSupplier();
+            dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

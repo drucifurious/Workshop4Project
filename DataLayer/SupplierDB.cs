@@ -12,7 +12,7 @@ namespace DataLayer
     public static class SupplierDB
     {
 
-        public static List<Supplier> GetSupplier()
+        public static List<Supplier> GetSuppliers()
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             List<Supplier> results = new List<Supplier>();
@@ -20,7 +20,7 @@ namespace DataLayer
             try
             {
 
-                string sql = "SELECT SupplierId, SupName   FROM Products ";
+                string sql = "SELECT SupplierId, SupName   FROM Suppliers ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
@@ -44,7 +44,7 @@ namespace DataLayer
 
 
 
-        public static Supplier GetSupplier(int ID)
+        public static Supplier GetSuppliers(int ID)
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             Supplier s = new Supplier();
