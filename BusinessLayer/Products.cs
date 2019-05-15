@@ -12,6 +12,7 @@ namespace BusinessLayer
         public string ProdName { get; set; }
 
        
+        
 
     }
 }
