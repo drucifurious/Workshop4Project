@@ -75,16 +75,18 @@ namespace DataLayer
         }
 
 
-        public static int AddSupplier(string SupName)
+        public static int AddSupplier(string SupplierId, string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + " (SupName)" +
+            string sql = "INSERT INTO Suppliers" + " ( SupplierId, SupName)" +
                  " VALUES" +
-                 " (@SupName)";
+                 " (@SupplierId, @SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
-            command.Parameters.AddWithValue("@SupName", SupName);
-       
+            command.Parameters.AddWithValue("@SupplierId", SupplierId);
+            command.Parameters.AddWithValue("@SupName", SupName)
+
+
 
 
             int qq = command.ExecuteNonQuery();
