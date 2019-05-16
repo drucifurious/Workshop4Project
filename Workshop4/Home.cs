@@ -17,35 +17,44 @@ namespace Workshop4
             InitializeComponent();
         }
 
-        private void PackagesBtn_Click(object sender, EventArgs e)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            Packages p = new Packages();
 
-            p.Show();
         }
+            private void PackagesBtn_Click(object sender, EventArgs e)
+            {
+                frmPackages p = new frmPackages();
+                p.Show();
+            }
 
-        private void ProductsBtn_Click(object sender, EventArgs e)
-        {
-            Products pr = new Products();
-            pr.Show();
-        }
+            private void ProductsBtn_Click(object sender, EventArgs e)
+            {
+                frmProducts pr = new frmProducts();
+                pr.Show();
+            }
 
-        private void SuppliersBtn_Click(object sender, EventArgs e)
-        {
-            Suppliers s = new Suppliers();
-            s.Show();
-        }
+            private void SuppliersBtn_Click(object sender, EventArgs e)
+            {
+                frmSuppliers s = new frmSuppliers();
+                s.Show();
+            }
 
-        private void ProdSuppBtn_Click(object sender, EventArgs e)
-        {
-            ProductsSuppliers ps = new ProductsSuppliers();
-            ps.Show();
-        }
+            private void ProdSuppBtn_Click(object sender, EventArgs e)
+            {
+                frmProductsSuppliers ps = new frmProductsSuppliers();
+                ps.Show();
+            }
 
-        private void PackProdSuppBtn_Click(object sender, EventArgs e)
+            private void PackProdSuppBtn_Click(object sender, EventArgs e)
+            {
+                frmPackagesProductsSuppliers pps = new frmPackagesProductsSuppliers();
+                pps.Show();
+            }
+
+        private void Home_Load(object sender, EventArgs e)
         {
-            PackagesProductsSuppliers pps = new PackagesProductsSuppliers();
-            pps.Show();
+
         }
     }
-}
+    }
+

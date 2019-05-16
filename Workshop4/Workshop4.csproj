@@ -46,29 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Suppliers.cs">
+    <Compile Include="frmSupplier1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Suppliers.Designer.cs">
-      <DependentUpon>Suppliers.cs</DependentUpon>
+    <Compile Include="frmSupplier1.Designer.cs">
+      <DependentUpon>frmSupplier1.cs</DependentUpon>
     </Compile>
-    <Compile Include="PackagesProductsSuppliers.cs">
+    <Compile Include="frmPackagesProductsSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PackagesProductsSuppliers.Designer.cs">
-      <DependentUpon>PackagesProductsSuppliers.cs</DependentUpon>
+    <Compile Include="frmPackagesProductsSuppliers.Designer.cs">
+      <DependentUpon>frmPackagesProductsSuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProductsSuppliers.cs">
+    <Compile Include="frmProductsSuppliers.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProductsSuppliers.Designer.cs">
-      <DependentUpon>ProductsSuppliers.cs</DependentUpon>
+    <Compile Include="frmProductsSuppliers.Designer.cs">
+      <DependentUpon>frmProductsSuppliers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products.cs">
+    <Compile Include="frmProducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Products.Designer.cs">
-      <DependentUpon>Products.cs</DependentUpon>
+    <Compile Include="frmProducts.Designer.cs">
+      <DependentUpon>frmProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -76,25 +76,31 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Packages.cs">
+    <Compile Include="frmPackages.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Packages.Designer.cs">
-      <DependentUpon>Packages.cs</DependentUpon>
+    <Compile Include="frmPackages.Designer.cs">
+      <DependentUpon>frmPackages.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmProducts.resx">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplier1.resx">
+      <DependentUpon>frmSupplier1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Packages.resx">
-      <DependentUpon>Packages.cs</DependentUpon>
+    <EmbeddedResource Include="frmPackages.resx">
+      <DependentUpon>frmPackages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PackagesProductsSuppliers.resx">
-      <DependentUpon>PackagesProductsSuppliers.cs</DependentUpon>
+    <EmbeddedResource Include="frmPackagesProductsSuppliers.resx">
+      <DependentUpon>frmPackagesProductsSuppliers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProductsSuppliers.resx">
-      <DependentUpon>ProductsSuppliers.cs</DependentUpon>
+    <EmbeddedResource Include="frmProductsSuppliers.resx">
+      <DependentUpon>frmProductsSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -105,9 +111,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Suppliers.resx">
-      <DependentUpon>Suppliers.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Workshop4
 {
-    public partial class Products : Form
+    public partial class frmProducts : Form
     {
-        public Products()
+        public frmProducts()
         {
             InitializeComponent();
         }
