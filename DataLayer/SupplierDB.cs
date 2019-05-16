@@ -75,16 +75,18 @@ namespace DataLayer
         }
 
 
-        public static int AddSupplier(string SupName)
+        public static int AddSupplier(string SupplierId, string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + " (SupName)" +
+            string sql = "INSERT INTO Suppliers" + " ( SupplierId, SupName)" +
                  " VALUES" +
-                 " (@SupName)";
+                 " (@SupplierId, @SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
+            command.Parameters.AddWithValue("@SupplierId", SupplierId);
             command.Parameters.AddWithValue("@SupName", SupName);
-       
+
+
 
 
             int qq = command.ExecuteNonQuery();
@@ -92,7 +94,7 @@ namespace DataLayer
             return qq;
 
         }
-        public static int DeleSupplier(int SupId)
+        public static int DeleteSupplier(int SupId)
         {
             string sql = "Delete Suppliers where SupplierId=" + SupId;
 
@@ -104,7 +106,7 @@ namespace DataLayer
 
         }
 
-        public static int UpdaSupplier(int ID, string SupName)
+        public static int UpdateSupplier(int ID, string SupName)
         {
             //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
 
