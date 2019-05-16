@@ -23,7 +23,7 @@ namespace Workshop4
         {
             int ID = Convert.ToInt32(textBox1.Text);
             Supplier supp = new Supplier();
-            supp = DataLayer.SupplierDB.GetSupplier(ID);
+            supp = DataLayer.SupplierDB.GetSuppliers(ID);
 
             label3.Text = supp.SupplierId.ToString();
             label4.Text = supp.SupName;

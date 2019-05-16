@@ -12,12 +12,41 @@ namespace DataLayer
     public static class ProductDB
     {
 
-
-        public static List<Products> GetProduct(int ProdId)
+        public static List<Products> GetProduct()
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             List<Products> results = new List<Products>();
-    
+
+            try
+            {
+               
+                string sql = "SELECT ProductId, ProdName   FROM Products ";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Products s= new Products();
+                    s.ProdName = reader["ProdName"].ToString();
+                    s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());
+                    results.Add(s);
+
+                }
+            }
+            catch { }
+            finally
+            {
+                connection.Close();
+            }
+
+            return results;
+
+        }
+
+        public static Products GetProducts(int ProdId)
+        {
+            SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
+            Products s = new Products();
+
             try
             {
                 string sql = "SELECT ProductId, ProdName " +
@@ -40,11 +69,9 @@ namespace DataLayer
                 connection.Close();
             }
 
-
             return s;
 
         }
-
 
         public static int AddProduct(string ProdName)
         {

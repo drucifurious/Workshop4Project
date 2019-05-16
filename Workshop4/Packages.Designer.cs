@@ -56,6 +56,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Packages";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Packages_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

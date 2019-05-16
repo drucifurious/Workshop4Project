@@ -11,34 +11,40 @@ namespace DataLayer
  
     public static class SupplierDB
     {
+
         public static List<Supplier> GetSuppliers()
         {
-            SqlConnection connection = TRAExpertsDB.GetConnection();
+            SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             List<Supplier> results = new List<Supplier>();
+
             try
             {
-                string sql = "SELECT SupplierId, SupName FROM Suppliers";
+
+                string sql = "SELECT SupplierId, SupName   FROM Suppliers ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
                     Supplier s = new Supplier();
-                    s.SupplierId = reader["SupplierId"].ToString();
                     s.SupName = reader["SupName"].ToString();
+                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
                     results.Add(s);
+
                 }
             }
             catch { }
-
             finally
             {
                 connection.Close();
             }
+
             return results;
-            
+
         }
-        
-        public static Supplier GetSupplier(int ID)
+
+
+
+        public static Supplier GetSuppliers(int ID)
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             Supplier s = new Supplier();
@@ -52,7 +58,7 @@ namespace DataLayer
                 while (reader.Read())
                 {
                     s.SupName = reader["SupName"].ToString();
-                    s.SupplierId = reader["SupplierId"].ToString();
+                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
                     //results.ADD(s);
                     //test
                 }

@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer
 {
-    class Products
+    public class Products
     {
-        public int PackageId { get; set; }
+        public int ProductId { get; set; }
         public string ProdName { get; set; }
         
        
+        
+
+
 
     }
 }
