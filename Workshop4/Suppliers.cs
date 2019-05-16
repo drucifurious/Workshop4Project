@@ -38,5 +38,26 @@ namespace Workshop4
         {
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(textBox1.Text);
+            Supplier suppAdd = new Supplier();
+            suppAdd = DataLayer.SupplierDB.GetSuppliers(ID);
+
+
+
+
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

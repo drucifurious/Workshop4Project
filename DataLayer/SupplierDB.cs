@@ -84,7 +84,7 @@ namespace DataLayer
             SqlCommand command = new SqlCommand(sql, connection);
 
             command.Parameters.AddWithValue("@SupplierId", SupplierId);
-            command.Parameters.AddWithValue("@SupName", SupName)
+            command.Parameters.AddWithValue("@SupName", SupName);
 
 
 
@@ -94,7 +94,7 @@ namespace DataLayer
             return qq;
 
         }
-        public static int DeleSupplier(int SupId)
+        public static int DeleteSupplier(int SupId)
         {
             string sql = "Delete Suppliers where SupplierId=" + SupId;
 
@@ -106,7 +106,7 @@ namespace DataLayer
 
         }
 
-        public static int UpdaSupplier(int ID, string SupName)
+        public static int UpdateSupplier(int ID, string SupName)
         {
             //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
 
