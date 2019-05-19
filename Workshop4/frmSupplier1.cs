@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BusinessLayer;
 namespace Workshop4
 {
     public partial class frmSupplier1 : Form
@@ -42,5 +42,9 @@ namespace Workshop4
             label2.Text = supp.SupName;
         }
 
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -35,7 +35,7 @@ namespace Workshop4
 
             private void SuppliersBtn_Click(object sender, EventArgs e)
             {
-                frmSuppliers s = new frmSuppliers();
+                frmSupplier1 s = new frmSupplier1();
                 s.Show();
             }
 

@@ -5,26 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BusinessLayer;
+
 namespace DataLayer
 {
     public class Product_SuppliersDB
     {
         public static List<Product_SuppliersDB> GetProduct_SupplierDB()
         {
-            SqlConnection connection = DataLayer.Product_SuppliersDB.GetConnection();
+            SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             List<Product_SuppliersDB> results = new List<Product_SuppliersDB>();
 
             try
             {
 
-                string sql = "SELECT ProductId, SupplierId   FROM dbo.Products_Suppliers ";
+                string sql = "SELECT ProductId, SupplierId   FROM Products_Suppliers ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
                     Product_SuppliersDB s = new Product_SuppliersDB ();
                     s.ProductId = reader["ProductId"].ToString();
-                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                    s.SupplierId = Convert.ToInt32(reader["SupplierId"]).ToString();
                     results.Add(s);
                     
                 }
@@ -39,16 +40,16 @@ namespace DataLayer
 
         }
 
-        public static DataLayer GetProducts_Suppliers(int ProductId, int SuppliersId)
+        public static List<Product_SuppliersDB> GetProducts_Suppliers(int ProductId, int SuppliersId)
         {
-            SqlConnection connection = DataLayer.Product_suppliersId.GetConnection();
+            SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             Products s = new Products();
 
             try
             {
                 string sql = "SELECT ProductId, ProdName " +
                     " FROM Products " +
-                    " WHERE ProductID =" + ProdId;
+                    " WHERE ProductID =" + ProductId;
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -56,18 +57,19 @@ namespace DataLayer
                 {
                     s.ProdName = reader["ProdName"].ToString();
                     s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());
-                    //results.ADD(s);
+                    results.ADD(s);
 
                 }
             }
+
             catch { }
             finally
             {
                 connection.Close();
             }
 
-            return s;
-
+            return results;
+        
         }
 
         public static int AddProduct(string ProdName)
