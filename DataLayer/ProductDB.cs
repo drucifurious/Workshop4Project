@@ -20,7 +20,7 @@ namespace DataLayer
             try
             {
                
-                string sql = "SELECT ProductId, ProdName   FROM Products ";
+                string sql = "SELECT * ProductId, ProdName   FROM Products ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())

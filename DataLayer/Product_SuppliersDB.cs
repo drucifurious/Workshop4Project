@@ -17,7 +17,7 @@ namespace DataLayer
             try
             {
 
-                string sql = "SELECT ProductId, SupplierId   FROM dbo.Products_Suppliers ";
+                string sql = "SELECT ProductId, SupplierId   FROM dbo.Products Suppliers ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
@@ -46,9 +46,9 @@ namespace DataLayer
 
             try
             {
-                string sql = "SELECT ProductId, ProdName " +
-                    " FROM Products " +
-                    " WHERE ProductID =" + ProdId;
+                string sql = "SELECT ProductId, supplierId " +
+                    " FROM dbo.Products supplierId " +
+                    " WHERE ProductID  =" + ProdId;
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
