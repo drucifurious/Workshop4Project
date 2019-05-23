@@ -75,14 +75,15 @@ namespace DataLayer
         }
 
 
-        public static int AddSupplier(string SupName)
+        public static int AddSupplier(int SupplierID, string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + " (SupName)" +
+            string sql = "INSERT INTO Suppliers" + " (SupplierID,SupName)" +
                  " VALUES" +
-                 " (@SupName)";
+                 " (@SupplierID,@SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
+            command.Parameters.AddWithValue("@SupplierID", SupplierID);
             command.Parameters.AddWithValue("@SupName", SupName);
        
 
@@ -104,14 +105,10 @@ namespace DataLayer
 
         }
 
-        public static int UpdaSupplier(int ID, string SupName)
+        public static int UpdaSupplier(int SupId, string SupName)
         {
-            //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
 
-            //  "(@SupName)"+ "where SupplierId ="+ID;
-
-            string sql = "UPDATE  Suppliers  SET SupName=@SupName" + ID;
-
+            string sql = "UPDATE  Suppliers  SET SupName=@SupName WHERE SupplierId=" + SupId;
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
@@ -123,7 +120,33 @@ namespace DataLayer
 
         }
 
+        public static List<Supplier> orderby(string coluName)
+        {
+            SqlConnection connection = TRAExpertsDB.GetConnection();
+            List<Supplier> results = new List<Supplier>();
+            try
+            {
+                string sql = "SELECT * FROM suppliers order by" + "'" + coluName + "'";
+               // string sql = "SELECT * FROM suppliers order by  SupplierId";
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Supplier s = new Supplier();
+                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                    s.SupName = reader["SupName"].ToString();
+                    results.Add(s);
+                }
+            }
+            catch { }
 
+            finally
+            {
+                connection.Close();
+            }
+            return results;
+
+        }
 
 
 
