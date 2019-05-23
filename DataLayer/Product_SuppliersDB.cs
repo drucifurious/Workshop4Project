@@ -17,7 +17,7 @@ namespace DataLayer
             try
             {
 
-                string sql = "SELECT ProductId, SupplierId   FROM dbo.Products Suppliers ";
+                string sql = "SELECT ProductId, SupplierId   FROM dbo.Products";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
