@@ -75,7 +75,7 @@ namespace DataLayer
         }
 
 
-        public static int AddSupplier(string SupplierId, string SupName)
+        public static int AddSupplier(int SupplierId, string SupName)
         {
             string sql = "INSERT INTO Suppliers" + " ( SupplierId, SupName)" +
                  " VALUES" +
@@ -85,14 +85,8 @@ namespace DataLayer
 
             command.Parameters.AddWithValue("@SupplierId", SupplierId);
             command.Parameters.AddWithValue("@SupName", SupName);
-
-
-
-
             int qq = command.ExecuteNonQuery();
-        
             return qq;
-
         }
         public static int DeleteSupplier(int SupId)
         {
@@ -108,11 +102,9 @@ namespace DataLayer
 
         public static int UpdateSupplier(int ID, string SupName)
         {
-            //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
+           
 
-            //  "(@SupName)"+ "where SupplierId ="+ID;
-
-            string sql = "UPDATE  Suppliers  SET SupName=@SupName" + ID;
+            string sql = "UPDATE  Suppliers  SET SupName=@SupName where SupplierId=" + ID;
 
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
@@ -125,7 +117,33 @@ namespace DataLayer
 
         }
 
+        public static List<Supplier> orderby(string coluName)
+        {
+            SqlConnection connection = TRAExpertsDB.GetConnection();
+            List<Supplier> results = new List<Supplier>();
+            try
+            {
+                string sql = "SELECT * FROM Suppliers order by" + "'" + coluName + "'";
 
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Supplier s = new Supplier();
+                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                    s.SupName = reader["SupName"].ToString();               
+                    results.Add(s);
+                }
+            }
+            catch { }
+
+            finally
+            {
+                connection.Close();
+            }
+            return results;
+
+        }
 
 
 
