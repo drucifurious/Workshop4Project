@@ -13,7 +13,7 @@ using DataLayer;
 
 namespace Workshop4
 {
-    public partial class frmSupplier1 : Form 
+    public partial class frmSupplier1 : Form
     {
         public frmSupplier1()
         {
@@ -31,7 +31,7 @@ namespace Workshop4
             dataGridView1.DataSource = DataLayer.SupplierDB.orderby(coluName);
         }
 
-       
+
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -41,18 +41,44 @@ namespace Workshop4
         }
 
 
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        private void textBox1_DoubleClick(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(textBox1.Text);
-            Supplier supp = new Supplier();
-            supp = DataLayer.SupplierDB.GetSuppliers(ID);
+            if (textBox1.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                int row = dataGridView1.Rows.Count;
+                int cell = dataGridView1.Rows[1].Cells.Count;
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < cell; j++)
+                    {
+                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        {
 
-            label3.Text = supp.SupplierId.ToString();
-            label4.Text = supp.SupName;
-        }
-    
-  
+                            dataGridView1.CurrentCell = dataGridView1[j, i];
+                            dataGridView1.Rows[i].Selected = true;
+                            i = i + 1;
+                            return;
+                        }
+                    }
+                }
+
+
+
+
+            }
+        }        
+   
+
+
+
+
+
+
+
 
         private void Add_button_Click_1(object sender, EventArgs e)
         {
@@ -91,13 +117,72 @@ namespace Workshop4
             }
         }
 
-   
 
-        private void update_button_Click_1(object sender, EventArgs e)
+
+
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip1.Show("you can find record by input supplier ID or click cell ", this.label5);
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.UseFading = true;
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                //MessageBox.Show("can not be empty");
+                return;
+            }
+            else
+            {
+                int row = dataGridView1.Rows.Count;
+                int cell = dataGridView1.Rows[1].Cells.Count;
+                int qq = 0;
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < cell; j++)
+                    {
+                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        {
+
+                            qq = 1;
+                            dataGridView1.CurrentCell = dataGridView1[j, i];
+                            dataGridView1.Rows[i].Selected = true;
+                            i = i + 1;
+                            return;
+                        }
+                    }
+                    textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
+                    
+                }
+
+                //if (qq == 0)
+                //{
+                //    MessageBox.Show("others");
+                //}
+
+            }
+
+
+        }
+
+        private void go_home_button_Click_1(object sender, EventArgs e)
+        {
+            Home home = new Home();
+            home.Show();
+        }
+
+        private void update_button_Click(object sender, EventArgs e)
         {
             int index = dataGridView1.CurrentCell.RowIndex;
-            int ID =Convert.ToInt32( dataGridView1.Rows[index].Cells[0].Value.ToString());
-           
+            int ID = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
+
             textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
             int qq1 = DataLayer.SupplierDB.UpdateSupplier(Convert.ToInt32(textBox4.Text), textBox5.Text);
             if (qq1 > 0)
@@ -106,9 +191,11 @@ namespace Workshop4
                 dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
             }
             else
-            { MessageBox.Show("Update not successful!"); }
+            {
+                MessageBox.Show("Update not successful!");
+            }
             textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-           
+
             textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
             label4.BackColor = System.Drawing.Color.LightBlue;
             Supplier supp = new Supplier();
@@ -116,20 +203,47 @@ namespace Workshop4
             supp = DataLayer.SupplierDB.GetSuppliers(id);
             label3.Text = supp.SupplierId.ToString();
             label4.Text = supp.SupName;
+
+
+            int row = dataGridView1.Rows.Count;
+            int cell = dataGridView1.Rows[1].Cells.Count;
+            for (int i = 0; i < row; i++)
+            {
+                for (int j = 0; j < cell; j++)
+                {
+                    if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                    {
+
+                        dataGridView1.CurrentCell = dataGridView1[j, i];
+                        dataGridView1.Rows[i].Selected = true;
+                        i = i + 1;
+                        return;
+                    }
+                }
+
+               
+                textBox4.Text = textBox1.Text;
+            }
+
         }
 
-
-        private void go_home_button_Click(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            Home home = new Home();
-            home.Show();
-        }
+            if (textBox1.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                int ID = Convert.ToInt32(textBox1.Text);
+                List<int> rowsOfInterest = new List<int>();
 
-        private void label5_MouseEnter(object sender, EventArgs e)
-        {
-            this.toolTip1.Show("you can find record by input supplier ID or click cell ", this.label5);
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.UseFading = true;
+                Supplier supp = new Supplier();
+                supp = DataLayer.SupplierDB.GetSuppliers(ID);
+
+                label3.Text = supp.SupplierId.ToString();
+                label4.Text = supp.SupName;
+            }
         }
     }
 }
