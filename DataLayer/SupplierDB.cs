@@ -77,9 +77,9 @@ namespace DataLayer
 
         public static int AddSupplier(int SupplierId, string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + " ( SupplierId, SupName)" +
+            string sql = "INSERT INTO Suppliers" + " (SupplierId,SupName)" +
                  " VALUES" +
-                 " (@SupplierId, @SupName)";
+                 " (@SupplierId,@SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
