@@ -69,21 +69,26 @@ namespace Workshop4
             int i = dataGridView1.Rows.Count - 1;
             dataGridView1.CurrentCell = dataGridView1[0, i];
         }
-      
+
         private void Delete_button_Click(object sender, EventArgs e)
         {
             Delete_button.BackColor = System.Drawing.Color.LightBlue;
-
-            int ID = Convert.ToInt32(dataGridView1.CurrentCell.Value.ToString());
-            int qq1 = DataLayer.SupplierDB.DeleteSupplier(ID);
-
-            if (qq1 > 0)
+            DialogResult dr = MessageBox.Show("Do you want to delete?", "reminder", MessageBoxButtons.YesNo);
+            if (dr == DialogResult.Yes)
             {
-                MessageBox.Show("Delete successful!");
-                dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+
+
+                int ID = Convert.ToInt32(dataGridView1.CurrentCell.Value.ToString());
+                int qq1 = DataLayer.SupplierDB.DeleteSupplier(ID);
+
+                if (qq1 > 0)
+                {
+                    MessageBox.Show("Delete successful!");
+                    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                }
+                else
+                { MessageBox.Show("Delete not successful!"); }
             }
-            else
-            { MessageBox.Show("Delete not successful!"); }
         }
 
    
@@ -120,7 +125,12 @@ namespace Workshop4
             home.Show();
         }
 
-        
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip1.Show("you can find record by input supplier ID or click cell ", this.label5);
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.UseFading = true;
+        }
     }
 }
 
