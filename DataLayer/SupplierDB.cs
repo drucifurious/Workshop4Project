@@ -75,17 +75,18 @@ namespace DataLayer
         }
 
 
-        public static int AddSupplier(int SupplierID, string SupName)
+        public static int AddSupplier(string SupplierId, string SupName)
         {
-            string sql = "INSERT INTO Suppliers" + " (SupplierID,SupName)" +
+            string sql = "INSERT INTO Suppliers" + " ( SupplierId, SupName)" +
                  " VALUES" +
-                 " (@SupplierID,@SupName)";
+                 " (@SupplierId, @SupName)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
-            command.Parameters.AddWithValue("@SupplierID", SupplierID);
+            command.Parameters.AddWithValue("@SupplierId", SupplierId);
             command.Parameters.AddWithValue("@SupName", SupName);
-       
+
+
 
 
             int qq = command.ExecuteNonQuery();
@@ -93,7 +94,7 @@ namespace DataLayer
             return qq;
 
         }
-        public static int DeleSupplier(int SupId)
+        public static int DeleteSupplier(int SupId)
         {
             string sql = "Delete Suppliers where SupplierId=" + SupId;
 
@@ -105,10 +106,14 @@ namespace DataLayer
 
         }
 
-        public static int UpdaSupplier(int SupId, string SupName)
+        public static int UpdateSupplier(int ID, string SupName)
         {
+            //string sql = "UPDATE  Suppliers" + "SET (SupName)=" +
 
-            string sql = "UPDATE  Suppliers  SET SupName=@SupName WHERE SupplierId=" + SupId;
+            //  "(@SupName)"+ "where SupplierId ="+ID;
+
+            string sql = "UPDATE  Suppliers  SET SupName=@SupName" + ID;
+
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
@@ -120,33 +125,7 @@ namespace DataLayer
 
         }
 
-        public static List<Supplier> orderby(string coluName)
-        {
-            SqlConnection connection = TRAExpertsDB.GetConnection();
-            List<Supplier> results = new List<Supplier>();
-            try
-            {
-                string sql = "SELECT * FROM suppliers order by" + "'" + coluName + "'";
-               // string sql = "SELECT * FROM suppliers order by  SupplierId";
-                SqlCommand command = new SqlCommand(sql, connection);
-                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                while (reader.Read())
-                {
-                    Supplier s = new Supplier();
-                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
-                    s.SupName = reader["SupName"].ToString();
-                    results.Add(s);
-                }
-            }
-            catch { }
 
-            finally
-            {
-                connection.Close();
-            }
-            return results;
-
-        }
 
 
 

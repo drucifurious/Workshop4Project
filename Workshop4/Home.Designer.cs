@@ -109,7 +109,8 @@
             this.Controls.Add(this.ProductsBtn);
             this.Controls.Add(this.PackagesBtn);
             this.Name = "Home";
-            this.Text = "Form1";
+            this.Text = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

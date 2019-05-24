@@ -1,6 +1,6 @@
 ﻿namespace Workshop4
 {
-    partial class ProductsSuppliers
+    partial class frmPackagesProductsSuppliers
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@
         {
             this.SuspendLayout();
             // 
-            // ProductsSuppliers
+            // frmPackagesProductsSuppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "ProductsSuppliers";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.ProductsSuppliers_Load);
+            this.Name = "frmPackagesProductsSuppliers";
+            this.Text = "frmPackagesProductsSuppliers";
+            this.Load += new System.EventHandler(this.PackagesProductsSuppliers_Load);
             this.ResumeLayout(false);
 
         }
