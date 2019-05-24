@@ -55,17 +55,18 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(67, 69);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 65);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(375, 430);
+            this.dataGridView1.Size = new System.Drawing.Size(583, 546);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(707, 27);
+            this.textBox1.Location = new System.Drawing.Point(941, 32);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 26);
@@ -123,7 +124,7 @@
             // go_home_button
             // 
             this.go_home_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.go_home_button.Location = new System.Drawing.Point(1075, 434);
+            this.go_home_button.Location = new System.Drawing.Point(1054, 515);
             this.go_home_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.go_home_button.Name = "go_home_button";
             this.go_home_button.Size = new System.Drawing.Size(112, 35);
@@ -173,7 +174,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(540, 30);
+            this.label5.Location = new System.Drawing.Point(743, 35);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 20);
@@ -244,7 +245,7 @@
             this.tableLayoutPanel1.Controls.Add(this.Detail_button, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 2, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(517, 89);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(670, 101);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44F));
