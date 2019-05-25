@@ -46,9 +46,11 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -67,13 +69,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(857, 91);
+            this.textBox1.Location = new System.Drawing.Point(880, 81);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.DoubleClick += new System.EventHandler(this.textBox1_DoubleClick);
             this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label3
@@ -99,7 +100,7 @@
             this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
             this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.update_button.Location = new System.Drawing.Point(454, 230);
+            this.update_button.Location = new System.Drawing.Point(450, 230);
             this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update_button.Name = "update_button";
             this.update_button.Size = new System.Drawing.Size(73, 73);
@@ -124,7 +125,7 @@
             this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Delete_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_button.BackgroundImage")));
             this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Delete_button.Location = new System.Drawing.Point(454, 65);
+            this.Delete_button.Location = new System.Drawing.Point(450, 65);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Delete_button.Name = "Delete_button";
             this.Delete_button.Size = new System.Drawing.Size(78, 64);
@@ -151,7 +152,7 @@
             this.Add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Add_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_button.BackgroundImage")));
             this.Add_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Add_button.Location = new System.Drawing.Point(454, 142);
+            this.Add_button.Location = new System.Drawing.Point(450, 142);
             this.Add_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Add_button.Name = "Add_button";
             this.Add_button.Size = new System.Drawing.Size(73, 75);
@@ -162,7 +163,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(710, 91);
+            this.label5.Location = new System.Drawing.Point(710, 81);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 20);
@@ -207,7 +208,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.79661F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.20339F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 89F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
@@ -233,7 +234,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(221, 3);
+            this.label8.Location = new System.Drawing.Point(219, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 20);
@@ -243,27 +244,44 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(221, 60);
+            this.label4.Location = new System.Drawing.Point(219, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "SupplierName";
             // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(220, 228);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(117, 26);
-            this.textBox5.TabIndex = 18;
-            // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(221, 142);
+            this.textBox3.Location = new System.Drawing.Point(219, 142);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(115, 26);
             this.textBox3.TabIndex = 7;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(218, 228);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(117, 26);
+            this.textBox5.TabIndex = 18;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(880, 112);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(113, 26);
+            this.textBox6.TabIndex = 20;
+            this.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(710, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 20);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "Find by SupplierName";
             // 
             // frmSupplier1
             // 
@@ -271,6 +289,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox6);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -312,5 +332,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label1;
     }
 }

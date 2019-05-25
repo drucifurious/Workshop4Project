@@ -41,44 +41,6 @@ namespace Workshop4
         }
 
 
-        private void textBox1_DoubleClick(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                return;
-            }
-            else
-            {
-                int row = dataGridView1.Rows.Count;
-                int cell = dataGridView1.Rows[1].Cells.Count;
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < cell; j++)
-                    {
-                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
-                        {
-
-                            dataGridView1.CurrentCell = dataGridView1[j, i];
-                            dataGridView1.Rows[i].Selected = true;
-                            i = i + 1;
-                            return;
-                        }
-                    }
-                }
-
-
-
-
-            }
-        }        
-   
-
-
-
-
-
-
-
 
         private void Add_button_Click_1(object sender, EventArgs e)
         {
@@ -136,14 +98,13 @@ namespace Workshop4
         {
             if (textBox1.Text == "")
             {
-                //MessageBox.Show("can not be empty");
                 return;
             }
             else
             {
                 int row = dataGridView1.Rows.Count;
                 int cell = dataGridView1.Rows[1].Cells.Count;
-                int qq = 0;
+               
                 for (int i = 0; i < row; i++)
                 {
                     for (int j = 0; j < cell; j++)
@@ -151,7 +112,7 @@ namespace Workshop4
                         if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
                         {
 
-                            qq = 1;
+                            
                             dataGridView1.CurrentCell = dataGridView1[j, i];
                             dataGridView1.Rows[i].Selected = true;
                             i = i + 1;
@@ -162,10 +123,6 @@ namespace Workshop4
                     
                 }
 
-                //if (qq == 0)
-                //{
-                //    MessageBox.Show("others");
-                //}
 
             }
 
@@ -180,51 +137,57 @@ namespace Workshop4
 
         private void update_button_Click(object sender, EventArgs e)
         {
-            int index = dataGridView1.CurrentCell.RowIndex;
-            int ID = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
-
-            textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            int qq1 = DataLayer.SupplierDB.UpdateSupplier(Convert.ToInt32(textBox4.Text), textBox5.Text);
-            if (qq1 > 0)
+            if (textBox4.Text == "" || textBox5.Text == "")
             {
-                MessageBox.Show("Update successful!");
-                dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                MessageBox.Show("SupplierID must be selected and shpplierName must be filled");
             }
             else
             {
-                MessageBox.Show("Update not successful!");
-            }
-            textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                int index = dataGridView1.CurrentCell.RowIndex;
+                int ID = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
 
-            textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            label4.BackColor = System.Drawing.Color.LightBlue;
-            Supplier supp = new Supplier();
-            int id = Convert.ToInt32(textBox4.Text);
-            supp = DataLayer.SupplierDB.GetSuppliers(id);
-            label3.Text = supp.SupplierId.ToString();
-            label4.Text = supp.SupName;
-
-
-            int row = dataGridView1.Rows.Count;
-            int cell = dataGridView1.Rows[1].Cells.Count;
-            for (int i = 0; i < row; i++)
-            {
-                for (int j = 0; j < cell; j++)
+                textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                int qq1 = DataLayer.SupplierDB.UpdateSupplier(Convert.ToInt32(textBox4.Text), textBox5.Text);
+                if (qq1 > 0)
                 {
-                    if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
-                    {
-
-                        dataGridView1.CurrentCell = dataGridView1[j, i];
-                        dataGridView1.Rows[i].Selected = true;
-                        i = i + 1;
-                        return;
-                    }
+                    MessageBox.Show("Update successful!");
+                    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
                 }
+                else
+                {
+                    MessageBox.Show("Update not successful!");
+                }
+                textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
 
-               
-                textBox4.Text = textBox1.Text;
+                textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+                label4.BackColor = System.Drawing.Color.LightBlue;
+                Supplier supp = new Supplier();
+                int id = Convert.ToInt32(textBox4.Text);
+                supp = DataLayer.SupplierDB.GetSuppliers(id);
+                label3.Text = supp.SupplierId.ToString();
+                label4.Text = supp.SupName;
+
+
+                int row = dataGridView1.Rows.Count;
+                int cell = dataGridView1.Rows[1].Cells.Count;
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < cell; j++)
+                    {
+                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        {
+
+                            dataGridView1.CurrentCell = dataGridView1[j, i];
+                            dataGridView1.Rows[i].Selected = true;
+                            i = i + 1;
+                            return;
+                        }
+                    }
+
+
+                    textBox4.Text = textBox1.Text;
+                }
             }
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -254,6 +217,39 @@ namespace Workshop4
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void textBox6_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (textBox6.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                int row = dataGridView1.Rows.Count;
+                int cell = dataGridView1.Rows[1].Cells.Count;
+
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < cell; j++)
+                    {
+                        if (textBox6.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        {
+
+
+                            dataGridView1.CurrentCell = dataGridView1[j, i];
+                            dataGridView1.Rows[i].Selected = true;
+                            i = i + 1;
+                            return;
+                        }
+                    }
+                 
+
+                }
+
+
+            }
         }
     }
 }
