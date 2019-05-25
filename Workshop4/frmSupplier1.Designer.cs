@@ -100,7 +100,7 @@
             this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
             this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.update_button.Location = new System.Drawing.Point(348, 201);
+            this.update_button.Location = new System.Drawing.Point(344, 201);
             this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update_button.Name = "update_button";
             this.update_button.Size = new System.Drawing.Size(62, 64);
@@ -125,7 +125,7 @@
             this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Delete_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_button.BackgroundImage")));
             this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Delete_button.Location = new System.Drawing.Point(348, 58);
+            this.Delete_button.Location = new System.Drawing.Point(344, 58);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Delete_button.Name = "Delete_button";
             this.Delete_button.Size = new System.Drawing.Size(62, 54);
@@ -152,7 +152,7 @@
             this.Add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Add_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_button.BackgroundImage")));
             this.Add_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Add_button.Location = new System.Drawing.Point(348, 125);
+            this.Add_button.Location = new System.Drawing.Point(344, 125);
             this.Add_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Add_button.Name = "Add_button";
             this.Add_button.Size = new System.Drawing.Size(62, 63);
@@ -198,6 +198,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(103, 26);
             this.textBox4.TabIndex = 17;
+            this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
             // 
             // tableLayoutPanel1
             // 
@@ -208,7 +209,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.76012F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.23988F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 77F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
@@ -233,7 +234,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(133, 3);
+            this.label8.Location = new System.Drawing.Point(132, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 20);
@@ -243,7 +244,7 @@
             // textBox3
             // 
             this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(133, 125);
+            this.textBox3.Location = new System.Drawing.Point(132, 125);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(184, 26);
@@ -252,7 +253,7 @@
             // textBox5
             // 
             this.textBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox5.Location = new System.Drawing.Point(132, 199);
+            this.textBox5.Location = new System.Drawing.Point(131, 199);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(185, 26);
             this.textBox5.TabIndex = 18;
@@ -260,7 +261,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(133, 53);
+            this.label4.Location = new System.Drawing.Point(132, 53);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);

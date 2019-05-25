@@ -95,7 +95,6 @@ namespace DataLayer
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
             int qq = command.ExecuteNonQuery();
-       
             return qq;
 
         }

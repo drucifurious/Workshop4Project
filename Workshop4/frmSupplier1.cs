@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
 using DataLayer;
+using System.Data.SqlClient;
+
 
 namespace Workshop4
 {
@@ -23,6 +25,8 @@ namespace Workshop4
         private void frmSupplier1_Load_1(object sender, EventArgs e)
         {
             dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+            label3.Text = dataGridView1.CurrentCell.Value.ToString();
+
         }
 
         //let user sort table by supplier ID and Name
@@ -50,17 +54,32 @@ namespace Workshop4
             }
             else
             {
-                int ID = Convert.ToInt32(textBox2.Text);
-                int qq1 = DataLayer.SupplierDB.AddSupplier(ID, textBox3.Text);
-                if (qq1 > 0)
+                //catch error
+                try
                 {
-                    MessageBox.Show("insert successful!");
-                    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                    int ID = Convert.ToInt32(textBox2.Text);
+                    int qq1 = DataLayer.SupplierDB.AddSupplier(ID, textBox3.Text);
+                    if (qq1 > 0)
+                    {
+                        MessageBox.Show("insert successful!");
+                        dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                    }
+                    else
+                    { MessageBox.Show("insert not successful!"); }
+                    int i = dataGridView1.Rows.Count - 1;
+                    dataGridView1.CurrentCell = dataGridView1[0, i];
                 }
-                else
-                { MessageBox.Show("insert not successful!"); }
-                int i = dataGridView1.Rows.Count - 1;
-                dataGridView1.CurrentCell = dataGridView1[0, i];
+                catch (DataException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    return;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Database error #" + ex.Number + ":" + ex.Message, ex.GetType().ToString());
+                    return;
+                }
+
             }
         }
 
@@ -70,22 +89,63 @@ namespace Workshop4
             int index = dataGridView1.CurrentCell.RowIndex;
             string ID1 = dataGridView1.Rows[index].Cells[0].Value.ToString();
             int ID = Convert.ToInt32(ID1);
-            DialogResult dr = MessageBox.Show("Do you want to delete supplierID "+ID1+" ?", "reminder", MessageBoxButtons.YesNo);
+            DialogResult dr = MessageBox.Show("Do you want to delete supplierID " + ID1 + " ?", "reminder", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-                int qq1 = DataLayer.SupplierDB.DeleteSupplier(ID);
-                if (qq1 > 0)
+                this.Validate();
+                try
                 {
-                    MessageBox.Show("Delete successful!");
-                    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                   int qq1= DataLayer.SupplierDB.DeleteSupplier(ID);
+                    
+                    if (qq1 > 0)
+                    {
+                        MessageBox.Show("Delete successful!");
+                        dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                        if (index == dataGridView1.Rows.Count)
+                        { dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0]; }
+                        else
+                        { dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0]; }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Delete not successful!");
+                    }
+
                 }
-                else
-                { MessageBox.Show("Delete not successful!"); }
+
+                //catch error
+                catch (DataException ex)
+                {
+                    MessageBox.Show(ex.Message, ex.GetType().ToString());
+                    return;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Database error #" + ex.Number + ":" + ex.Message, ex.GetType().ToString());
+                    return;
+                }
+
+              
+                    //int qq1=DataLayer.SupplierDB.DeleteSupplier(ID);
+                    //if (qq1 > 0)
+                    //{
+                    //    MessageBox.Show("Delete successful!");
+                    //    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                    //    if (index == dataGridView1.Rows.Count)
+                    //    { dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0]; }
+                    //    else
+                    //    { dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0]; }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Delete not successful!");
+                    //}
+                
             }
         }
 
 
-       //update a selected record
+        //update a selected record
         private void update_button_Click(object sender, EventArgs e)
         {
             if (textBox4.Text == "" || textBox5.Text == "")
@@ -94,10 +154,6 @@ namespace Workshop4
             }
             else
             {
-                int index = dataGridView1.CurrentCell.RowIndex;
-                int ID = Convert.ToInt32(dataGridView1.Rows[index].Cells[0].Value.ToString());
-
-                textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 int qq1 = DataLayer.SupplierDB.UpdateSupplier(Convert.ToInt32(textBox4.Text), textBox5.Text);
                 if (qq1 > 0)
                 {
@@ -106,37 +162,18 @@ namespace Workshop4
                 }
                 else
                 {
-                    MessageBox.Show("Update not successful!");
+                    MessageBox.Show("Update not successful!,Make sure supplierID is correct");
                 }
 
-                //display the updated record
-                textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-                label4.BackColor = System.Drawing.Color.LightBlue;
+                //display the updated record              
                 Supplier supp = new Supplier();
                 int id = Convert.ToInt32(textBox4.Text);
                 supp = DataLayer.SupplierDB.GetSuppliers(id);
                 label3.Text = supp.SupplierId.ToString();
                 label4.Text = supp.SupName;
-
+                label4.BackColor = System.Drawing.Color.LightBlue;
                 //locate cursor to updated record
-                int row = dataGridView1.Rows.Count;
-                int cell = dataGridView1.Rows[1].Cells.Count;
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < cell; j++)
-                    {
-                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
-                        {
-
-                            dataGridView1.CurrentCell = dataGridView1[j, i];
-                            dataGridView1.Rows[i].Selected = true;
-                            i = i + 1;
-                            return;
-                        }
-                    }
-                    textBox4.Text = textBox1.Text;
-                }
+                Locate(textBox4.Text);
             }
         }
 
@@ -149,12 +186,10 @@ namespace Workshop4
             }
             else
             {
-                int ID = Convert.ToInt32(textBox1.Text);
-                List<int> rowsOfInterest = new List<int>();
-
+               // List<int> rowsOfInterest = new List<int>();
                 Supplier supp = new Supplier();
+                int ID = Convert.ToInt32(textBox1.Text);
                 supp = DataLayer.SupplierDB.GetSuppliers(ID);
-
                 label3.Text = supp.SupplierId.ToString();
                 label4.Text = supp.SupName;
             }
@@ -163,7 +198,29 @@ namespace Workshop4
         //let user find record by supplierID
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (textBox1.Text == "")
+            Locate(textBox1.Text);
+            textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
+            
+        }
+
+
+        //let user find record by supplierName
+        private void textBox6_KeyDown(object sender, KeyEventArgs e)
+        {
+            Locate(textBox6.Text);
+        }
+
+        //let user update record by supplierID
+        private void textBox4_KeyDown(object sender, KeyEventArgs e)
+        {
+            Locate(textBox4.Text);
+        }
+
+        //method for locate selected record in the table
+        public void Locate(string keyword)
+
+        {
+            if (keyword == "")
             {
                 return;
             }
@@ -171,11 +228,12 @@ namespace Workshop4
             {
                 int row = dataGridView1.Rows.Count;
                 int cell = dataGridView1.Rows[1].Cells.Count;
+
                 for (int i = 0; i < row; i++)
                 {
                     for (int j = 0; j < cell; j++)
                     {
-                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        if (keyword.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
                         {
                             dataGridView1.CurrentCell = dataGridView1[j, i];
                             dataGridView1.Rows[i].Selected = true;
@@ -183,39 +241,10 @@ namespace Workshop4
                             return;
                         }
                     }
-                    textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
                 }
             }
         }
 
-
-        //let user find record by supplierName
-        private void textBox6_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (textBox6.Text == "")
-            {
-                return;
-            }
-            else
-            {
-                int row = dataGridView1.Rows.Count;
-                int cell = dataGridView1.Rows[1].Cells.Count;
-
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < cell; j++)
-                    {
-                        if (textBox6.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
-                        {
-                            dataGridView1.CurrentCell = dataGridView1[j, i];
-                            dataGridView1.Rows[i].Selected = true;
-                            i = i + 1;
-                            return;
-                        }
-                    }                
-                }
-            }
-        }
 
 
         //give user a message when user enter cursor on label1
@@ -249,6 +278,8 @@ namespace Workshop4
             this.toolTip1.UseFading = false;
         }
 
+
+
         //let user go back home page
         private void go_home_button_Click(object sender, EventArgs e)
         {
@@ -256,6 +287,8 @@ namespace Workshop4
             Home h1 = new Home();
             h1.Show();
         }
+
+       
     }
 }
 
