@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplier1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Detail_button = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
@@ -63,10 +63,11 @@
             this.dataGridView1.Size = new System.Drawing.Size(583, 546);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(941, 32);
+            this.textBox1.Location = new System.Drawing.Point(857, 91);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(113, 26);
@@ -78,7 +79,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 30);
+            this.label3.Location = new System.Drawing.Point(7, 60);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 20);
@@ -87,7 +88,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(7, 151);
+            this.textBox2.Location = new System.Drawing.Point(7, 142);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(102, 26);
@@ -96,12 +97,13 @@
             // update_button
             // 
             this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.update_button.Location = new System.Drawing.Point(339, 210);
+            this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
+            this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.update_button.Location = new System.Drawing.Point(454, 230);
             this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(118, 35);
+            this.update_button.Size = new System.Drawing.Size(73, 73);
             this.update_button.TabIndex = 8;
-            this.update_button.Text = "Update";
             this.update_button.UseVisualStyleBackColor = false;
             this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
@@ -120,12 +122,13 @@
             // Delete_button
             // 
             this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Delete_button.Location = new System.Drawing.Point(339, 95);
+            this.Delete_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_button.BackgroundImage")));
+            this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Delete_button.Location = new System.Drawing.Point(454, 65);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Delete_button.Name = "Delete_button";
-            this.Delete_button.Size = new System.Drawing.Size(117, 41);
+            this.Delete_button.Size = new System.Drawing.Size(78, 64);
             this.Delete_button.TabIndex = 10;
-            this.Delete_button.Text = "Delete";
             this.Delete_button.UseVisualStyleBackColor = false;
             this.Delete_button.Click += new System.EventHandler(this.Delete_button_Click);
             // 
@@ -146,19 +149,20 @@
             // Add_button
             // 
             this.Add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Add_button.Location = new System.Drawing.Point(339, 151);
+            this.Add_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_button.BackgroundImage")));
+            this.Add_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Add_button.Location = new System.Drawing.Point(454, 142);
             this.Add_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Add_button.Name = "Add_button";
-            this.Add_button.Size = new System.Drawing.Size(118, 46);
+            this.Add_button.Size = new System.Drawing.Size(73, 75);
             this.Add_button.TabIndex = 12;
-            this.Add_button.Text = "Add ";
             this.Add_button.UseVisualStyleBackColor = false;
             this.Add_button.Click += new System.EventHandler(this.Add_button_Click_1);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(743, 35);
+            this.label5.Location = new System.Drawing.Point(710, 91);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(139, 20);
@@ -185,49 +189,51 @@
             this.label7.Size = new System.Drawing.Size(81, 20);
             this.label7.TabIndex = 15;
             this.label7.Text = "SupplierId";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 208);
+            this.textBox4.Location = new System.Drawing.Point(6, 228);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(103, 26);
             this.textBox4.TabIndex = 17;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.79661F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.20339F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
-            this.tableLayoutPanel1.Controls.Add(this.Delete_button, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.Detail_button, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox4, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.update_button, 2, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.Add_button, 2, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(694, 109);
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox2, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Add_button, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBox4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.textBox5, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.update_button, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.Delete_button, 2, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(615, 155);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 5;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.55975F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.44025F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(472, 266);
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.45283F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.54717F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 82F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(539, 311);
             this.tableLayoutPanel1.TabIndex = 19;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 3);
+            this.label8.Location = new System.Drawing.Point(221, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 20);
@@ -237,34 +243,23 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(166, 30);
+            this.label4.Location = new System.Drawing.Point(221, 60);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 5;
             this.label4.Text = "SupplierName";
             // 
-            // Detail_button
-            // 
-            this.Detail_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Detail_button.Location = new System.Drawing.Point(339, 35);
-            this.Detail_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Detail_button.Name = "Detail_button";
-            this.Detail_button.Size = new System.Drawing.Size(118, 37);
-            this.Detail_button.TabIndex = 20;
-            this.Detail_button.Text = "Select";
-            this.Detail_button.UseVisualStyleBackColor = false;
-            // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(165, 208);
+            this.textBox5.Location = new System.Drawing.Point(220, 228);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(117, 26);
             this.textBox5.TabIndex = 18;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(166, 151);
+            this.textBox3.Location = new System.Drawing.Point(221, 142);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(115, 26);
@@ -286,7 +281,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmSupplier1";
-            this.Text = "frmSupplier1";
+            this.Text = "Supplier";
             this.Load += new System.EventHandler(this.frmSupplier1_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -312,7 +307,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button Detail_button;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
