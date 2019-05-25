@@ -25,50 +25,55 @@ namespace Workshop4
             dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
         }
 
+        //let user sort table by supplier ID and Name
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             string coluName = comboBox1.SelectedItem.ToString();
             dataGridView1.DataSource = DataLayer.SupplierDB.orderby(coluName);
         }
 
-
+        //display the detail of the selected recored
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             int index = dataGridView1.CurrentCell.RowIndex;
             textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
             textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
         }
 
 
-
+        //add a new record
         private void Add_button_Click_1(object sender, EventArgs e)
         {
-            int ID = Convert.ToInt32(textBox2.Text);
-            int qq1 = DataLayer.SupplierDB.AddSupplier(ID, textBox3.Text);
-
-            if (qq1 > 0)
+            if (textBox2.Text == "" || textBox3.Text == "")
             {
-                MessageBox.Show("insert successful!");
-                dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                MessageBox.Show("SupplierID  and shpplierName must be filled");
             }
             else
-            { MessageBox.Show("insert not successful!"); }
-            int i = dataGridView1.Rows.Count - 1;
-            dataGridView1.CurrentCell = dataGridView1[0, i];
+            {
+                int ID = Convert.ToInt32(textBox2.Text);
+                int qq1 = DataLayer.SupplierDB.AddSupplier(ID, textBox3.Text);
+                if (qq1 > 0)
+                {
+                    MessageBox.Show("insert successful!");
+                    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                }
+                else
+                { MessageBox.Show("insert not successful!"); }
+                int i = dataGridView1.Rows.Count - 1;
+                dataGridView1.CurrentCell = dataGridView1[0, i];
+            }
         }
 
+        //delete a selected record
         private void Delete_button_Click(object sender, EventArgs e)
         {
-            Delete_button.BackColor = System.Drawing.Color.LightBlue;
-            DialogResult dr = MessageBox.Show("Do you want to delete?", "reminder", MessageBoxButtons.YesNo);
+            int index = dataGridView1.CurrentCell.RowIndex;
+            string ID1 = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            int ID = Convert.ToInt32(ID1);
+            DialogResult dr = MessageBox.Show("Do you want to delete supplierID "+ID1+" ?", "reminder", MessageBoxButtons.YesNo);
             if (dr == DialogResult.Yes)
             {
-
-
-                int ID = Convert.ToInt32(dataGridView1.CurrentCell.Value.ToString());
                 int qq1 = DataLayer.SupplierDB.DeleteSupplier(ID);
-
                 if (qq1 > 0)
                 {
                     MessageBox.Show("Delete successful!");
@@ -80,61 +85,7 @@ namespace Workshop4
         }
 
 
-
-
-        private void label5_MouseEnter(object sender, EventArgs e)
-        {
-            this.toolTip1.Show("you can find record by input supplier ID or click cell ", this.label5);
-            this.toolTip1.IsBalloon = true;
-            this.toolTip1.UseFading = true;
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                return;
-            }
-            else
-            {
-                int row = dataGridView1.Rows.Count;
-                int cell = dataGridView1.Rows[1].Cells.Count;
-               
-                for (int i = 0; i < row; i++)
-                {
-                    for (int j = 0; j < cell; j++)
-                    {
-                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
-                        {
-
-                            
-                            dataGridView1.CurrentCell = dataGridView1[j, i];
-                            dataGridView1.Rows[i].Selected = true;
-                            i = i + 1;
-                            return;
-                        }
-                    }
-                    textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
-                    
-                }
-
-
-            }
-
-
-        }
-
-        private void go_home_button_Click_1(object sender, EventArgs e)
-        {
-            Home home = new Home();
-            home.Show();
-        }
-
+       //update a selected record
         private void update_button_Click(object sender, EventArgs e)
         {
             if (textBox4.Text == "" || textBox5.Text == "")
@@ -157,8 +108,9 @@ namespace Workshop4
                 {
                     MessageBox.Show("Update not successful!");
                 }
-                textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
 
+                //display the updated record
+                textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
                 label4.BackColor = System.Drawing.Color.LightBlue;
                 Supplier supp = new Supplier();
@@ -167,7 +119,7 @@ namespace Workshop4
                 label3.Text = supp.SupplierId.ToString();
                 label4.Text = supp.SupName;
 
-
+                //locate cursor to updated record
                 int row = dataGridView1.Rows.Count;
                 int cell = dataGridView1.Rows[1].Cells.Count;
                 for (int i = 0; i < row; i++)
@@ -183,13 +135,12 @@ namespace Workshop4
                             return;
                         }
                     }
-
-
                     textBox4.Text = textBox1.Text;
                 }
             }
         }
 
+        //display the detail of the selected record
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (textBox1.Text == "")
@@ -209,16 +160,36 @@ namespace Workshop4
             }
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        //let user find record by supplierID
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (textBox1.Text == "")
+            {
+                return;
+            }
+            else
+            {
+                int row = dataGridView1.Rows.Count;
+                int cell = dataGridView1.Rows[1].Cells.Count;
+                for (int i = 0; i < row; i++)
+                {
+                    for (int j = 0; j < cell; j++)
+                    {
+                        if (textBox1.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        {
+                            dataGridView1.CurrentCell = dataGridView1[j, i];
+                            dataGridView1.Rows[i].Selected = true;
+                            i = i + 1;
+                            return;
+                        }
+                    }
+                    textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
+                }
+            }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
+        //let user find record by supplierName
         private void textBox6_KeyDown(object sender, KeyEventArgs e)
         {
             if (textBox6.Text == "")
@@ -236,20 +207,54 @@ namespace Workshop4
                     {
                         if (textBox6.Text.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
                         {
-
-
                             dataGridView1.CurrentCell = dataGridView1[j, i];
                             dataGridView1.Rows[i].Selected = true;
                             i = i + 1;
                             return;
                         }
-                    }
-                 
-
+                    }                
                 }
-
-
             }
+        }
+
+
+        //give user a message when user enter cursor on label1
+        private void label1_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip2.Show("you can find record by input supplier Name or click cell ", this.label1);
+            this.toolTip2.IsBalloon = true;
+            this.toolTip2.UseFading = true;
+
+        }
+
+        //give user a message when user leave cursor on label1
+        private void label1_MouseLeave(object sender, EventArgs e)
+        {
+            this.toolTip2.IsBalloon = false;
+            this.toolTip2.UseFading = false;
+        }
+
+        //give user a message when user enter cursor on label5
+        private void label5_MouseEnter(object sender, EventArgs e)
+        {
+            this.toolTip1.Show("you can find record by input supplier ID or click cell ", this.label5);
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.UseFading = true;
+        }
+
+        //give user a message when user leave cursor on label5
+        private void label5_MouseLeave(object sender, EventArgs e)
+        {
+            this.toolTip1.IsBalloon = false;
+            this.toolTip1.UseFading = false;
+        }
+
+        //let user go back home page
+        private void go_home_button_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Home h1 = new Home();
+            h1.Show();
         }
     }
 }
