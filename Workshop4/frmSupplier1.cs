@@ -25,9 +25,12 @@ namespace Workshop4
         private void frmSupplier1_Load_1(object sender, EventArgs e)
         {
             dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+
             label3.Text = dataGridView1.CurrentCell.Value.ToString();
+            dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
 
         }
+
 
         //let user sort table by supplier ID and Name
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -123,24 +126,7 @@ namespace Workshop4
                 {
                     MessageBox.Show("Database error #" + ex.Number + ":" + ex.Message, ex.GetType().ToString());
                     return;
-                }
-
-              
-                    //int qq1=DataLayer.SupplierDB.DeleteSupplier(ID);
-                    //if (qq1 > 0)
-                    //{
-                    //    MessageBox.Show("Delete successful!");
-                    //    dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
-                    //    if (index == dataGridView1.Rows.Count)
-                    //    { dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0]; }
-                    //    else
-                    //    { dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0]; }
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Delete not successful!");
-                    //}
-                
+                }                
             }
         }
 
@@ -180,13 +166,16 @@ namespace Workshop4
         //display the detail of the selected record
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
             if (textBox1.Text == "")
             {
                 return;
             }
             else
             {
-               // List<int> rowsOfInterest = new List<int>();
+                // List<int> rowsOfInterest = new List<int>();
+                Locate(textBox1.Text);
+                textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
                 Supplier supp = new Supplier();
                 int ID = Convert.ToInt32(textBox1.Text);
                 supp = DataLayer.SupplierDB.GetSuppliers(ID);
@@ -194,23 +183,17 @@ namespace Workshop4
                 label4.Text = supp.SupName;
             }
         }
-
-        //let user find record by supplierID
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        
+        private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            Locate(textBox1.Text);
-            textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
-            
-        }
-
-
-        //let user find record by supplierName
-        private void textBox6_KeyDown(object sender, KeyEventArgs e)
-        {
+            dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupName");
             Locate(textBox6.Text);
+            int index = dataGridView1.CurrentCell.RowIndex;
+            textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            textBox4.Text = textBox1.Text;
+
         }
 
-        //let user update record by supplierID
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
         {
             Locate(textBox4.Text);
@@ -228,21 +211,25 @@ namespace Workshop4
             {
                 int row = dataGridView1.Rows.Count;
                 int cell = dataGridView1.Rows[1].Cells.Count;
-
                 for (int i = 0; i < row; i++)
                 {
                     for (int j = 0; j < cell; j++)
                     {
-                        if (keyword.Trim() == dataGridView1.Rows[i].Cells[j].Value.ToString().Trim())
+                        //if  (dataGridView1.Rows[i].Cells[j].Value.ToString().Trim()==(keyword.Trim()))
+                        if (dataGridView1.Rows[i].Cells[j].Value.ToString().Trim().StartsWith(keyword.Trim()))
                         {
                             dataGridView1.CurrentCell = dataGridView1[j, i];
                             dataGridView1.Rows[i].Selected = true;
+                            int index = dataGridView1.CurrentCell.RowIndex;
+                            dataGridView1.FirstDisplayedScrollingRowIndex = index;
                             i = i + 1;
                             return;
                         }
                     }
                 }
+               
             }
+           
         }
 
 
@@ -288,7 +275,6 @@ namespace Workshop4
             h1.Show();
         }
 
-       
     }
 }
 
