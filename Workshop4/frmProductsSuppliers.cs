@@ -44,7 +44,7 @@ namespace Workshop4
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowTemplate.Height = 65;
             //label3.Text = dataGridView1.CurrentCell.Value.ToString();
-            dataGridView1.DataSource = DataLayer.Product_SuppliersDB.orderby("Product_SuppliersId");
+            dataGridView1.DataSource = DataLayer.Product_SuppliersDB.orderby("ProductSuppliersId");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

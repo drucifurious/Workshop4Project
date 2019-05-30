@@ -92,7 +92,7 @@ namespace DataLayer
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                while (reader.Read())
+                while (reader.Read()) 
                 {
                     Products_suppliers s = new Products_suppliers ();
                     s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
