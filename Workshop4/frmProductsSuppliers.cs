@@ -19,6 +19,11 @@ namespace Workshop4
 
         private void ProductsSuppliers_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

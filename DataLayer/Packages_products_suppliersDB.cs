@@ -9,7 +9,7 @@ namespace DataLayer
         public static class Packages_products_suppliersDB
     {
 
-            public static List<Supplier> GetPackages_products_suppliers()
+            public static List<Packages_products_suppliers> GetPackages_products_suppliers()
             {
                 SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
                 List<Packages_products_suppliers> results = new List<Packages_products_suppliers>();
@@ -40,7 +40,7 @@ namespace DataLayer
 
 
 
-            public static Supplier GetPackages_Products_Suppliers(int ID)
+            public static Packages_Products_Suppliers GetPackages_Products_Suppliers(int ID)
             {
                 SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
                 Packages_Products_Suppliers s = new Packages_Products_Suppliers();
