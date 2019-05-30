@@ -90,8 +90,9 @@ namespace Workshop4
                     }
                     else
                     { MessageBox.Show("insert not successful!"); }
-                    int i = dataGridView1.Rows.Count - 1;
-                    dataGridView1.CurrentCell = dataGridView1[0, i];
+                    dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
+                    Locate(ID.ToString());
+               
                 }
                 catch (DataException ex)
                 {
@@ -182,6 +183,8 @@ namespace Workshop4
                 textBox7.Text = supp.SupplierId.ToString();
                 textBox8.Text = supp.SupName;
                 //locate cursor to updated record
+                dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
+               
                 Locate(textBox4.Text);
             }
         }
@@ -336,7 +339,7 @@ namespace Workshop4
         //        int ID = Convert.ToInt32(textBox1.Text);
         //        supp = DataLayer.SupplierDB.GetSuppliers(ID);
         //     
-        //        label4.Text = supp.SupName;
+        //       
         //    }
         //}
 
