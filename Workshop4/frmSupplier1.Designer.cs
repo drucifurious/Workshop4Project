@@ -115,7 +115,7 @@
             // 
             // go_home_button
             // 
-            this.go_home_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.go_home_button.BackColor = System.Drawing.Color.Aqua;
             this.go_home_button.Location = new System.Drawing.Point(1062, 590);
             this.go_home_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.go_home_button.Name = "go_home_button";
@@ -343,7 +343,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.BackColor = System.Drawing.Color.Aqua;
             this.button1.ForeColor = System.Drawing.Color.Black;
             this.button1.Location = new System.Drawing.Point(608, 124);
             this.button1.Name = "button1";
@@ -355,7 +355,7 @@
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button2.BackColor = System.Drawing.Color.Aqua;
             this.button2.Location = new System.Drawing.Point(608, 271);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(158, 42);
@@ -366,7 +366,7 @@
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button3.BackColor = System.Drawing.Color.Aqua;
             this.button3.Location = new System.Drawing.Point(608, 409);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(158, 37);
