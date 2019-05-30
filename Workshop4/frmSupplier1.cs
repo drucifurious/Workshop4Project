@@ -26,7 +26,7 @@ namespace Workshop4
         {
 
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Aqua;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;

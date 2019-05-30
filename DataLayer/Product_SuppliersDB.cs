@@ -26,11 +26,12 @@ namespace DataLayer
                 while (reader.Read())
                 {
                     Products_suppliers s = new Products_suppliers();
-                    //s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId "].ToString());
-                    s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
                     
+                   // s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
+
                     //s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
                     //s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                      s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
                     results.Add(s);
              
                 }
@@ -53,9 +54,8 @@ namespace DataLayer
             Products_suppliers s = new Products_suppliers();
             try
             {
-                string sql = "SELECT * FROM [dbo].[Products_Suppliers] ";
+                string sql = "SELECT * FROM [dbo].[Products_Suppliers] where ProductSupplierId="+ID;
                 SqlCommand command = new SqlCommand(sql, connection);
-
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
@@ -72,10 +72,7 @@ namespace DataLayer
             {
                 connection.Close();
             }
-
-
             return s;
-
         }
 
 

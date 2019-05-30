@@ -44,12 +44,26 @@ namespace Workshop4
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowTemplate.Height = 65;
             //label3.Text = dataGridView1.CurrentCell.Value.ToString();
-            dataGridView1.DataSource = DataLayer.Product_SuppliersDB.orderby("Product_SuppliersId");
+            dataGridView1.DataSource = DataLayer.Product_SuppliersDB.orderby("ProductSupplierId");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        { 
+            Products_suppliers pro = new Products_suppliers();
+            int ID = Convert.ToInt32(textBox1.Text);
+            pro = DataLayer.Product_SuppliersDB.GetProduct_Suppliers(ID);
+            textBox2.Text = pro.ProductId.ToString();
+            textBox3.Text = pro.SupplierId.ToString();
+
+
+
+        }
+
+     
     }
 }
