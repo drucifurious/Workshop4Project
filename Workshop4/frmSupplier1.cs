@@ -28,25 +28,25 @@ namespace Workshop4
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Green;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.GreenYellow;
-           
+
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
- 
+
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView1.ColumnHeadersHeight = 35;
-         
+
 
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-  //Font
-       // Dim font As New Font(dataGridView1.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
+            //Font
+            // Dim font As New Font(dataGridView1.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
             //dataGridView1.ColumnHeadersDefaultCellStyle.Font = font;
 
             dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
             dataGridView1.Columns[0].Width = 100;
-            dataGridView1.AutoGenerateColumns = false; 
+            dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowTemplate.Height = 65;
-            label3.Text = dataGridView1.CurrentCell.Value.ToString();
+            //label3.Text = dataGridView1.CurrentCell.Value.ToString();
             dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
-       
+
         }
 
 
@@ -63,6 +63,9 @@ namespace Workshop4
             int index = dataGridView1.CurrentCell.RowIndex;
             textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
             textBox4.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            textBox5.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            textBox7.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            textBox8.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
         }
 
 
@@ -87,8 +90,9 @@ namespace Workshop4
                     }
                     else
                     { MessageBox.Show("insert not successful!"); }
-                    int i = dataGridView1.Rows.Count - 1;
-                    dataGridView1.CurrentCell = dataGridView1[0, i];
+                    dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
+                    Locate(ID.ToString());
+               
                 }
                 catch (DataException ex)
                 {
@@ -116,8 +120,8 @@ namespace Workshop4
                 this.Validate();
                 try
                 {
-                   int qq1= DataLayer.SupplierDB.DeleteSupplier(ID);
-                    
+                    int qq1 = DataLayer.SupplierDB.DeleteSupplier(ID);
+
                     if (qq1 > 0)
                     {
                         MessageBox.Show("Delete successful!");
@@ -144,7 +148,7 @@ namespace Workshop4
                 {
                     MessageBox.Show("Database error #" + ex.Number + ":" + ex.Message, ex.GetType().ToString());
                     return;
-                }                
+                }
             }
         }
 
@@ -152,6 +156,7 @@ namespace Workshop4
         //update a selected record
         private void update_button_Click(object sender, EventArgs e)
         {
+
             if (textBox4.Text == "" || textBox5.Text == "")
             {
                 MessageBox.Show("SupplierID must be selected and shpplierName must be filled");
@@ -173,10 +178,13 @@ namespace Workshop4
                 Supplier supp = new Supplier();
                 int id = Convert.ToInt32(textBox4.Text);
                 supp = DataLayer.SupplierDB.GetSuppliers(id);
-                label3.Text = supp.SupplierId.ToString();
-                label4.Text = supp.SupName;
-                label4.BackColor = System.Drawing.Color.LightBlue;
+                textBox4.Text = supp.SupplierId.ToString();
+                textBox5.Text = supp.SupName;
+                textBox7.Text = supp.SupplierId.ToString();
+                textBox8.Text = supp.SupName;
                 //locate cursor to updated record
+                dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
+               
                 Locate(textBox4.Text);
             }
         }
@@ -197,11 +205,13 @@ namespace Workshop4
                 Supplier supp = new Supplier();
                 int ID = Convert.ToInt32(textBox1.Text);
                 supp = DataLayer.SupplierDB.GetSuppliers(ID);
-                label3.Text = supp.SupplierId.ToString();
-                label4.Text = supp.SupName;
+                textBox4.Text = supp.SupplierId.ToString();
+                textBox5.Text = supp.SupName;
+                textBox7.Text = supp.SupplierId.ToString();
+                textBox8.Text = supp.SupName;
             }
         }
-        
+
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupName");
@@ -209,6 +219,7 @@ namespace Workshop4
             int index = dataGridView1.CurrentCell.RowIndex;
             textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
             textBox4.Text = textBox1.Text;
+            textBox7.Text = textBox1.Text;
 
         }
 
@@ -245,9 +256,9 @@ namespace Workshop4
                         }
                     }
                 }
-               
+
             }
-           
+
         }
 
 
@@ -293,6 +304,64 @@ namespace Workshop4
             h1.Show();
         }
 
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+           
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = true;
+            
+        }
+
+        //display the detail of the selected record
+        //private void textBox1_TextChanged(object sender, EventArgs e)
+        //{
+
+        //    dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
+        //    if (textBox1.Text == "")
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        // List<int> rowsOfInterest = new List<int>();
+        //        Locate(textBox1.Text);
+        //        textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
+        //        Supplier supp = new Supplier();
+        //        int ID = Convert.ToInt32(textBox1.Text);
+        //        supp = DataLayer.SupplierDB.GetSuppliers(ID);
+        //     
+        //       
+        //    }
+        //}
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+        }
     }
 }
 
