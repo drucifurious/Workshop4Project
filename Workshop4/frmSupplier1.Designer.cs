@@ -75,7 +75,6 @@
             this.textBox1.Size = new System.Drawing.Size(113, 26);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            //is.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             // 
             // label3
             // 
@@ -100,7 +99,7 @@
             this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
             this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.update_button.Location = new System.Drawing.Point(340, 201);
+            this.update_button.Location = new System.Drawing.Point(441, 201);
             this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.update_button.Name = "update_button";
             this.update_button.Size = new System.Drawing.Size(62, 64);
@@ -125,7 +124,7 @@
             this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Delete_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_button.BackgroundImage")));
             this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Delete_button.Location = new System.Drawing.Point(340, 58);
+            this.Delete_button.Location = new System.Drawing.Point(441, 58);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Delete_button.Name = "Delete_button";
             this.Delete_button.Size = new System.Drawing.Size(62, 54);
@@ -152,7 +151,7 @@
             this.Add_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Add_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Add_button.BackgroundImage")));
             this.Add_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Add_button.Location = new System.Drawing.Point(340, 125);
+            this.Add_button.Location = new System.Drawing.Point(441, 125);
             this.Add_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Add_button.Name = "Add_button";
             this.Add_button.Size = new System.Drawing.Size(62, 63);
@@ -209,7 +208,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.76012F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.23988F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 0);
@@ -228,13 +227,13 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.54717F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 73F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(421, 273);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(526, 273);
             this.tableLayoutPanel1.TabIndex = 19;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(130, 3);
+            this.label8.Location = new System.Drawing.Point(167, 3);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 20);
@@ -244,7 +243,7 @@
             // textBox3
             // 
             this.textBox3.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox3.Location = new System.Drawing.Point(130, 125);
+            this.textBox3.Location = new System.Drawing.Point(167, 125);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(184, 26);
@@ -253,7 +252,7 @@
             // textBox5
             // 
             this.textBox5.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox5.Location = new System.Drawing.Point(129, 199);
+            this.textBox5.Location = new System.Drawing.Point(166, 199);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(185, 26);
             this.textBox5.TabIndex = 18;
@@ -261,7 +260,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(130, 53);
+            this.label4.Location = new System.Drawing.Point(167, 53);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
@@ -276,7 +275,6 @@
             this.textBox6.Size = new System.Drawing.Size(113, 26);
             this.textBox6.TabIndex = 20;
             this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-            //is.textBox6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox6_KeyDown);
             // 
             // label1
             // 
@@ -294,7 +292,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1305, 692);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.tableLayoutPanel1);

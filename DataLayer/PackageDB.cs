@@ -133,6 +133,39 @@ namespace DataLayer
             return qq;
 
         }
+        public static List<Packages> orderby(string coluName)
+        {
+            SqlConnection connection = TRAExpertsDB.GetConnection();
+            List<Packages> results = new List<Packages>();
+            try
+            {
+                string sql = "SELECT * FROM Packages order by" + "'" + coluName + "'";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Packages p = new Packages();
+                    p.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
+                    p.PkgName = reader["PkgName"].ToString();
+                    p.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
+                    p.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
+                    p.PkgDesc = reader["PkgDesc"].ToString();
+                    p.PkgBasePrice = Convert.ToDouble(reader["PkgBasePrice"].ToString());
+                    p.PkgAgencyCommission = Convert.ToDouble( reader["PkgAgencyCommission"].ToString());
+
+                    results.Add(p);
+                }
+            }
+            catch { }
+
+            finally
+            {
+                connection.Close();
+            }
+            return results;
+
+        }
 
 
 
