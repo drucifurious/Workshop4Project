@@ -155,13 +155,13 @@ namespace Workshop4
         //update a selected record
         private void update_button_Click_1(object sender, EventArgs e)
         {
-            if (txtPkId0.Text == "" || txtPkName2.Text == "")
+            if (txtPkId1.Text == "")
             {
-                MessageBox.Show("Package ID must be selected and Package Name must be filled");
+                MessageBox.Show("Package ID must  be filled");
             }
             else
             {
-                int qq1 = DataLayer.PackageDB.UpdaPackage(Convert.ToInt32(txtPkId0.Text), txtPkName2.Text ,  PkgStartDate, DateTime PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommissio);
+                int qq1 = DataLayer.PackageDB.UpdaPackage(Convert.ToInt32(lblPakID.Text), lblPackageName.Text , textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
                 if (qq1 > 0)
                 {
                     MessageBox.Show("Update successful!");
@@ -174,13 +174,13 @@ namespace Workshop4
 
                 //display the updated record              
                 Packages pk = new Packages();
-                int id = Convert.ToInt32(txtPkId0.Text);
+                int id = Convert.ToInt32(lblPakID.Text);
                 pk = DataLayer.PackageDB.GetPackage (id);
-                lblPackageID.Text = pk.PackageId.ToString();
+                lblPakID.Text = pk.PackageId.ToString();
                 lblPackageName.Text = pk.PkgName;
                 lblPackageName.BackColor = System.Drawing.Color.LightBlue;
                 //locate cursor to updated record
-                Locate(txtPkId0.Text);
+                Locate(lblPakID.Text);
             }
 
         }
@@ -203,31 +203,25 @@ namespace Workshop4
                     Packages pk = new Packages();
                     int ID = Convert.ToInt32(txtPackageId.Text);
                     pk = DataLayer.PackageDB.GetPackage (ID);
-                    lblPackageID.Text = pk.PackageId.ToString();
-                    lblPkID.Text = pk.PkgName;
+                    lblPakID.Text = pk.PackageId.ToString();
+                    txtPkgName.Text = pk.PkgName;
                 }
             }
 
         }
-        private void txtPkId2_KeyDown(object sender, KeyEventArgs e)
-        {
-            Locate(txtPkId0.Text);
-        }
+       
         private void txtPkgName_TextChanged(object sender, EventArgs e)
         {
             dataGridView1.DataSource = DataLayer.PackageDB.orderby("PkgName");
             Locate(txtPackageId.Text);
             int index = dataGridView1.CurrentCell.RowIndex;
             txtPackageId.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-             txtPkId0.Text = txtPackageId.Text;
+             txtPkId1.Text = txtPackageId.Text;
         }
 
 
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            Locate(txtPkName2.Text);
-        }
+       
 
         //method for locate selected record in the table
         public void Locate(string keyword)

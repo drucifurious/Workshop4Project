@@ -211,7 +211,7 @@
             this.txtPkId1.Name = "txtPkId1";
             this.txtPkId1.Size = new System.Drawing.Size(100, 20);
             this.txtPkId1.TabIndex = 15;
-            this.txtPkId1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            //this.txtPkId1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // Delete_button
             // 
