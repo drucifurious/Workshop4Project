@@ -24,7 +24,7 @@ namespace Workshop4
         private void Packages_Load(object sender, EventArgs e)
         {
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.Aqua;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -44,9 +44,10 @@ namespace Workshop4
             dataGridView1.RowTemplate.Height = 65;
             //label3.Text = dataGridView1.CurrentCell.Value.ToString();
             dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
+
         }
 
-            
+
         //-----------------------------------------------------------------------------------------------------
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
@@ -65,16 +66,25 @@ namespace Workshop4
         {
             int index = dataGridView1.CurrentCell.RowIndex;
             txtPackageId.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            txtPkgName.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-        }
+            //    int txtPkId1= Convert.ToInt32(txtPackageId);
+            txtPkgName.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+           //panel1.txtPkName1.Text = txtPakName;
+            // = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            txtPkStart.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            txtPkEnd.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
+            txtPkDesc.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
+            txtBasePrice.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
+            txtAgencyComm.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
 
+        }
+        
         // Add the Record
         private void Add_button_Click(object sender, EventArgs e)
         {
 
-            if (txtPkId1.Text == "" || txtPkName1.Text == "")
+            if (txtPkId1.Text == "" || txtPkName1.Text == ""|| txtStartDate1.Text=="" || txtEndDate1.Text=="" ||txtDescription1.Text==""|| txtBasePrice1.Text==""|| txtAgencyCommission.Text=="")
             {
-                MessageBox.Show("Package ID  and Package Name must be filled");
+                MessageBox.Show("All Fields must be filled");
             }
             else
             {
@@ -82,7 +92,7 @@ namespace Workshop4
                 try
                 {
                     int ID = Convert.ToInt32(txtPkId1.Text);
-                    int qq1 = DataLayer.SupplierDB.AddSupplier(ID, txtPkName1.Text);
+                    int qq1 = DataLayer.PackageDB.AddPackage(txtPkName1.Text, txtStartDate1.Text, txtEndDate1.Text, txtDescription1.Text, txtBasePrice1.Text, txtAgencyCommission.Text);
                     if (qq1 > 0)
                     {
                         MessageBox.Show("insert successful!");
@@ -155,13 +165,17 @@ namespace Workshop4
         //update a selected record
         private void update_button_Click_1(object sender, EventArgs e)
         {
+           
+        }
+        private void update_button_Click(object sender, EventArgs e)
+        {
             if (txtPkId1.Text == "")
             {
                 MessageBox.Show("Package ID must  be filled");
             }
             else
             {
-                int qq1 = DataLayer.PackageDB.UpdaPackage(Convert.ToInt32(lblPakID.Text), lblPackageName.Text , textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text);
+                int qq1 = DataLayer.PackageDB.UpdaPackage(Convert.ToInt32(lblPakID.Text), lblPackageName.Text, txtStartDate1.Text, txtEndDate1.Text, txtDescription1.Text, txtBasePrice1.Text, txtAgencyCommission.Text);
                 if (qq1 > 0)
                 {
                     MessageBox.Show("Update successful!");
@@ -175,18 +189,16 @@ namespace Workshop4
                 //display the updated record              
                 Packages pk = new Packages();
                 int id = Convert.ToInt32(lblPakID.Text);
-                pk = DataLayer.PackageDB.GetPackage (id);
+                pk = DataLayer.PackageDB.GetPackage(id);
                 lblPakID.Text = pk.PackageId.ToString();
-                lblPackageName.Text = pk.PkgName;
+                lblPackageName.Text = pk.PakName;
                 lblPackageName.BackColor = System.Drawing.Color.LightBlue;
                 //locate cursor to updated record
                 Locate(lblPakID.Text);
             }
-
         }
-
-        //display the detail of the selected record
-        private void txtPackageId_TextChanged(object sender, EventArgs e)
+            //display the detail of the selected record
+            private void txtPackageId_TextChanged(object sender, EventArgs e)
         {
 
             {
@@ -197,27 +209,28 @@ namespace Workshop4
                 }
                 else
                 {
-                    // List<int> rowsOfInterest = new List<int>();
+                    // List<int> rowsOfInterest = new List<int>();\
                     Locate(txtPackageId.Text);
                     // textBox4.Text = dataGridView1.CurrentCell.Value.ToString();
                     Packages pk = new Packages();
                     int ID = Convert.ToInt32(txtPackageId.Text);
                     pk = DataLayer.PackageDB.GetPackage (ID);
                     lblPakID.Text = pk.PackageId.ToString();
-                    txtPkgName.Text = pk.PkgName;
+                    txtPkgName.Text = pk.PakName;
                 }
             }
 
         }
        
-        private void txtPkgName_TextChanged(object sender, EventArgs e)
+        private void txtPakName_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PkgName");
+            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PakName");
             Locate(txtPackageId.Text);
             int index = dataGridView1.CurrentCell.RowIndex;
             txtPackageId.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
              txtPkId1.Text = txtPackageId.Text;
         }
+
 
 
 
@@ -349,7 +362,36 @@ namespace Workshop4
 
         private void textBox3_TextChanged_1(object sender, EventArgs e)
         {
+            panel3.Visible = true;
+            panel1.Visible = false;
+            panel2.Visible = false;
+
+
 
         }
+
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtAdd_TextChanged(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+            panel2.Visible = false;
+            panel3.Visible = false;
+        }
+
+        private void txtUpdate_TextChanged(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+            panel2.Visible = true;
+            panel3.Visible = false;
+        }
     }
-}
+    }

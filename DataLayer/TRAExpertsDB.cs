@@ -11,17 +11,17 @@ namespace DataLayer
     {
         public static SqlConnection GetConnection()
         {
-            //SqlConnection connection = new SqlConnection();
-            //string ConnectionString = "Data Source=DESKTOP-I8OAD8M;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
-            //connection.ConnectionString = ConnectionString;
+            SqlConnection connection = new SqlConnection();
+            string ConnectionString = "Data Source=DESKTOP-B52KRSQ;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
+            connection.ConnectionString = ConnectionString;
 
             // Remote DB
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "workshop4.database.windows.net";
-            builder.UserID = "Ye";
-            builder.Password = "Liu123456";
-            builder.InitialCatalog = "TravelExperts";
-            SqlConnection connection = new SqlConnection(builder.ConnectionString);
+            //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+            //builder.DataSource = "workshop4.database.windows.net";
+            //builder.UserID = "Ye";
+            //builder.Password = "Liu123456";
+            //builder.InitialCatalog = "TravelExperts";
+            //SqlConnection connection = new SqlConnection(builder.ConnectionString);
 
             connection.Open();
             return connection;

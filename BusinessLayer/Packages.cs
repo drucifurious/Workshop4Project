@@ -10,7 +10,7 @@ namespace BusinessLayer
     {
 
         public int PackageId { get; set; }
-        public string PkgName { get; set; }
+        public string PakName { get; set; }
         public DateTime PkgStartDate { get; set; }
         public DateTime PkgEndDate { get; set; }
         public string PkgDesc { get; set; }

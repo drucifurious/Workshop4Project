@@ -49,26 +49,27 @@
             this.Add_button = new System.Windows.Forms.Button();
             this.lblPakID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtAgencyCommission = new System.Windows.Forms.TextBox();
+            this.txtBasePrice1 = new System.Windows.Forms.TextBox();
+            this.txtDescription1 = new System.Windows.Forms.TextBox();
+            this.txtEndDate1 = new System.Windows.Forms.TextBox();
+            this.txtStartDate1 = new System.Windows.Forms.TextBox();
+            this.lblAgencyComm = new System.Windows.Forms.Label();
+            this.lblBasePrice = new System.Windows.Forms.Label();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.txtHide1 = new System.Windows.Forms.TextBox();
             this.txtAdd = new System.Windows.Forms.TextBox();
             this.txtUpdate = new System.Windows.Forms.TextBox();
             this.txtDelete = new System.Windows.Forms.TextBox();
-            this.txtHide1 = new System.Windows.Forms.TextBox();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.lblEndDate = new System.Windows.Forms.Label();
-            this.lblDesc = new System.Windows.Forms.Label();
-            this.lblBasePrice = new System.Windows.Forms.Label();
-            this.lblAgencyComm = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.update_button = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtAgencyComm2 = new System.Windows.Forms.TextBox();
+            this.txtBasePrice2 = new System.Windows.Forms.TextBox();
+            this.txtDescription2 = new System.Windows.Forms.TextBox();
+            this.txtEndDate2 = new System.Windows.Forms.TextBox();
+            this.txtStartDate2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -76,15 +77,15 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtPackId2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txtPackName2 = new System.Windows.Forms.TextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtAgencyComm3 = new System.Windows.Forms.TextBox();
+            this.txtPackBasePrice3 = new System.Windows.Forms.TextBox();
+            this.txtPackDescription3 = new System.Windows.Forms.TextBox();
+            this.txtPackEndDate3 = new System.Windows.Forms.TextBox();
+            this.txtStartDate3 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -92,14 +93,23 @@
             this.label14 = new System.Windows.Forms.Label();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtPackId3 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.update_button = new System.Windows.Forms.Button();
+            this.txtPackName3 = new System.Windows.Forms.TextBox();
+            this.PkDescription = new System.Windows.Forms.Label();
+            this.PkStart = new System.Windows.Forms.Label();
+            this.PkBasePrice = new System.Windows.Forms.Label();
+            this.PkEnd = new System.Windows.Forms.Label();
+            this.AgencyComm = new System.Windows.Forms.Label();
+            this.txtPkDesc = new System.Windows.Forms.TextBox();
+            this.txtPkStart = new System.Windows.Forms.TextBox();
+            this.txtBasePrice = new System.Windows.Forms.TextBox();
+            this.txtPkEnd = new System.Windows.Forms.TextBox();
+            this.txtAgencyComm = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -150,7 +160,7 @@
             // 
             // txtPackageId
             // 
-            this.txtPackageId.Location = new System.Drawing.Point(921, 76);
+            this.txtPackageId.Location = new System.Drawing.Point(717, 74);
             this.txtPackageId.Name = "txtPackageId";
             this.txtPackageId.Size = new System.Drawing.Size(100, 20);
             this.txtPackageId.TabIndex = 6;
@@ -158,18 +168,19 @@
             // 
             // txtPkgName
             // 
-            this.txtPkgName.Location = new System.Drawing.Point(921, 139);
+            this.txtPkgName.Location = new System.Drawing.Point(717, 118);
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(100, 20);
             this.txtPkgName.TabIndex = 7;
-            this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
+          //  this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
             // 
             // lblPkID
             // 
             this.lblPkID.AutoSize = true;
-            this.lblPkID.Location = new System.Drawing.Point(749, 79);
+            this.lblPkID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPkID.Location = new System.Drawing.Point(517, 77);
             this.lblPkID.Name = "lblPkID";
-            this.lblPkID.Size = new System.Drawing.Size(130, 13);
+            this.lblPkID.Size = new System.Drawing.Size(169, 17);
             this.lblPkID.TabIndex = 8;
             this.lblPkID.Text = "Pelase Enter Package ID ";
             this.lblPkID.MouseEnter += new System.EventHandler(this.lblPkID_MouseEnter);
@@ -178,11 +189,12 @@
             // PkName
             // 
             this.PkName.AutoSize = true;
-            this.PkName.Location = new System.Drawing.Point(752, 146);
+            this.PkName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PkName.Location = new System.Drawing.Point(583, 121);
             this.PkName.Name = "PkName";
-            this.PkName.Size = new System.Drawing.Size(144, 13);
+            this.PkName.Size = new System.Drawing.Size(108, 17);
             this.PkName.TabIndex = 9;
-            this.PkName.Text = "Please Enter Package Name";
+            this.PkName.Text = " Package Name";
             this.PkName.Click += new System.EventHandler(this.PkName_Click);
             this.PkName.MouseEnter += new System.EventHandler(this.PkName_MouseEnter);
             this.PkName.MouseLeave += new System.EventHandler(this.PkName_MouseLeave);
@@ -199,7 +211,7 @@
             // 
             // txtPkName1
             // 
-            this.txtPkName1.Location = new System.Drawing.Point(135, 50);
+            this.txtPkName1.Location = new System.Drawing.Point(167, 50);
             this.txtPkName1.Name = "txtPkName1";
             this.txtPkName1.Size = new System.Drawing.Size(100, 20);
             this.txtPkName1.TabIndex = 16;
@@ -207,18 +219,17 @@
             // 
             // txtPkId1
             // 
-            this.txtPkId1.Location = new System.Drawing.Point(135, 11);
+            this.txtPkId1.Location = new System.Drawing.Point(167, 11);
             this.txtPkId1.Name = "txtPkId1";
             this.txtPkId1.Size = new System.Drawing.Size(100, 20);
             this.txtPkId1.TabIndex = 15;
-            //this.txtPkId1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // Delete_button
             // 
             this.Delete_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Delete_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Delete_button.BackgroundImage")));
             this.Delete_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Delete_button.Location = new System.Drawing.Point(35, 254);
+            this.Delete_button.Location = new System.Drawing.Point(14, 265);
             this.Delete_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Delete_button.Name = "Delete_button";
             this.Delete_button.Size = new System.Drawing.Size(62, 54);
@@ -251,11 +262,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtAgencyCommission);
+            this.panel1.Controls.Add(this.txtBasePrice1);
+            this.panel1.Controls.Add(this.txtDescription1);
+            this.panel1.Controls.Add(this.txtEndDate1);
+            this.panel1.Controls.Add(this.txtStartDate1);
             this.panel1.Controls.Add(this.lblAgencyComm);
             this.panel1.Controls.Add(this.lblBasePrice);
             this.panel1.Controls.Add(this.lblDesc);
@@ -269,36 +280,94 @@
             this.panel1.Controls.Add(this.txtPkName1);
             this.panel1.Location = new System.Drawing.Point(692, 205);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(267, 331);
+            this.panel1.Size = new System.Drawing.Size(285, 331);
             this.panel1.TabIndex = 22;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // txtAdd
+            // txtAgencyCommission
             // 
-            this.txtAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAdd.Location = new System.Drawing.Point(444, 255);
-            this.txtAdd.Name = "txtAdd";
-            this.txtAdd.Size = new System.Drawing.Size(233, 31);
-            this.txtAdd.TabIndex = 23;
-            this.txtAdd.Text = "Please Click to Add";
+            this.txtAgencyCommission.Location = new System.Drawing.Point(167, 221);
+            this.txtAgencyCommission.Name = "txtAgencyCommission";
+            this.txtAgencyCommission.Size = new System.Drawing.Size(100, 20);
+            this.txtAgencyCommission.TabIndex = 31;
             // 
-            // txtUpdate
+            // txtBasePrice1
             // 
-            this.txtUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUpdate.Location = new System.Drawing.Point(444, 334);
-            this.txtUpdate.Name = "txtUpdate";
-            this.txtUpdate.Size = new System.Drawing.Size(233, 31);
-            this.txtUpdate.TabIndex = 24;
-            this.txtUpdate.Text = "Please Click to Update";
+            this.txtBasePrice1.Location = new System.Drawing.Point(167, 186);
+            this.txtBasePrice1.Name = "txtBasePrice1";
+            this.txtBasePrice1.Size = new System.Drawing.Size(100, 20);
+            this.txtBasePrice1.TabIndex = 30;
             // 
-            // txtDelete
+            // txtDescription1
             // 
-            this.txtDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDelete.Location = new System.Drawing.Point(443, 400);
-            this.txtDelete.Name = "txtDelete";
-            this.txtDelete.Size = new System.Drawing.Size(243, 31);
-            this.txtDelete.TabIndex = 25;
-            this.txtDelete.Text = "Please Click to Delete";
-            this.txtDelete.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
+            this.txtDescription1.Location = new System.Drawing.Point(167, 156);
+            this.txtDescription1.Name = "txtDescription1";
+            this.txtDescription1.Size = new System.Drawing.Size(100, 20);
+            this.txtDescription1.TabIndex = 29;
+            // 
+            // txtEndDate1
+            // 
+            this.txtEndDate1.Location = new System.Drawing.Point(167, 126);
+            this.txtEndDate1.Name = "txtEndDate1";
+            this.txtEndDate1.Size = new System.Drawing.Size(100, 20);
+            this.txtEndDate1.TabIndex = 28;
+            // 
+            // txtStartDate1
+            // 
+            this.txtStartDate1.Location = new System.Drawing.Point(167, 85);
+            this.txtStartDate1.Name = "txtStartDate1";
+            this.txtStartDate1.Size = new System.Drawing.Size(100, 20);
+            this.txtStartDate1.TabIndex = 27;
+            // 
+            // lblAgencyComm
+            // 
+            this.lblAgencyComm.AutoSize = true;
+            this.lblAgencyComm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAgencyComm.Location = new System.Drawing.Point(1, 221);
+            this.lblAgencyComm.Name = "lblAgencyComm";
+            this.lblAgencyComm.Size = new System.Drawing.Size(162, 20);
+            this.lblAgencyComm.TabIndex = 26;
+            this.lblAgencyComm.Text = "Agency Commission";
+            // 
+            // lblBasePrice
+            // 
+            this.lblBasePrice.AutoSize = true;
+            this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBasePrice.Location = new System.Drawing.Point(13, 195);
+            this.lblBasePrice.Name = "lblBasePrice";
+            this.lblBasePrice.Size = new System.Drawing.Size(92, 20);
+            this.lblBasePrice.TabIndex = 25;
+            this.lblBasePrice.Text = "Base Price";
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesc.Location = new System.Drawing.Point(10, 163);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(95, 20);
+            this.lblDesc.TabIndex = 24;
+            this.lblDesc.Text = "Description";
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEndDate.Location = new System.Drawing.Point(10, 126);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(79, 20);
+            this.lblEndDate.TabIndex = 23;
+            this.lblEndDate.Text = "End Date";
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStartDate.Location = new System.Drawing.Point(10, 85);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(86, 20);
+            this.lblStartDate.TabIndex = 22;
+            this.lblStartDate.Text = "Start Date";
             // 
             // txtHide1
             // 
@@ -310,186 +379,154 @@
             this.txtHide1.Text = "  Hide";
             this.txtHide1.TextChanged += new System.EventHandler(this.txtHide1_TextChanged);
             // 
-            // lblStartDate
+            // txtAdd
             // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(34, 85);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(55, 13);
-            this.lblStartDate.TabIndex = 22;
-            this.lblStartDate.Text = "Start Date";
+            this.txtAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAdd.Location = new System.Drawing.Point(444, 255);
+            this.txtAdd.Name = "txtAdd";
+            this.txtAdd.Size = new System.Drawing.Size(233, 31);
+            this.txtAdd.TabIndex = 23;
+            this.txtAdd.Text = "Please Click to Add";
+            this.txtAdd.TextChanged += new System.EventHandler(this.txtAdd_TextChanged);
             // 
-            // lblEndDate
+            // txtUpdate
             // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(34, 129);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(52, 13);
-            this.lblEndDate.TabIndex = 23;
-            this.lblEndDate.Text = "End Date";
+            this.txtUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUpdate.Location = new System.Drawing.Point(444, 334);
+            this.txtUpdate.Name = "txtUpdate";
+            this.txtUpdate.Size = new System.Drawing.Size(233, 31);
+            this.txtUpdate.TabIndex = 24;
+            this.txtUpdate.Text = "Please Click to Update";
+            this.txtUpdate.TextChanged += new System.EventHandler(this.txtUpdate_TextChanged);
             // 
-            // lblDesc
+            // txtDelete
             // 
-            this.lblDesc.AutoSize = true;
-            this.lblDesc.Location = new System.Drawing.Point(37, 163);
-            this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(60, 13);
-            this.lblDesc.TabIndex = 24;
-            this.lblDesc.Text = "Description";
+            this.txtDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDelete.Location = new System.Drawing.Point(443, 400);
+            this.txtDelete.Name = "txtDelete";
+            this.txtDelete.Size = new System.Drawing.Size(243, 31);
+            this.txtDelete.TabIndex = 25;
+            this.txtDelete.Text = "Please Click to Delete";
+            this.txtDelete.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
-            // lblBasePrice
+            // update_button
             // 
-            this.lblBasePrice.AutoSize = true;
-            this.lblBasePrice.Location = new System.Drawing.Point(33, 195);
-            this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(58, 13);
-            this.lblBasePrice.TabIndex = 25;
-            this.lblBasePrice.Text = "Base Price";
+            this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
+            this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.update_button.Location = new System.Drawing.Point(14, 265);
+            this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.update_button.Name = "update_button";
+            this.update_button.Size = new System.Drawing.Size(75, 61);
+            this.update_button.TabIndex = 32;
+            this.update_button.UseVisualStyleBackColor = false;
+            this.update_button.Click += new System.EventHandler(this.update_button_Click);
             // 
-            // lblAgencyComm
+            // panel2
             // 
-            this.lblAgencyComm.AutoSize = true;
-            this.lblAgencyComm.Location = new System.Drawing.Point(34, 221);
-            this.lblAgencyComm.Name = "lblAgencyComm";
-            this.lblAgencyComm.Size = new System.Drawing.Size(101, 13);
-            this.lblAgencyComm.TabIndex = 26;
-            this.lblAgencyComm.Text = "Agency Commission";
+            this.panel2.Controls.Add(this.txtAgencyComm2);
+            this.panel2.Controls.Add(this.txtBasePrice2);
+            this.panel2.Controls.Add(this.update_button);
+            this.panel2.Controls.Add(this.txtDescription2);
+            this.panel2.Controls.Add(this.txtEndDate2);
+            this.panel2.Controls.Add(this.txtStartDate2);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.textBox11);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.txtPackId2);
+            this.panel2.Controls.Add(this.label9);
+            this.panel2.Controls.Add(this.txtPackName2);
+            this.panel2.Location = new System.Drawing.Point(980, 205);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(285, 331);
+            this.panel2.TabIndex = 33;
             // 
-            // textBox1
+            // txtAgencyComm2
             // 
-            this.textBox1.Location = new System.Drawing.Point(135, 85);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 27;
+            this.txtAgencyComm2.Location = new System.Drawing.Point(167, 221);
+            this.txtAgencyComm2.Name = "txtAgencyComm2";
+            this.txtAgencyComm2.Size = new System.Drawing.Size(100, 20);
+            this.txtAgencyComm2.TabIndex = 31;
             // 
-            // textBox2
+            // txtBasePrice2
             // 
-            this.textBox2.Location = new System.Drawing.Point(135, 126);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 28;
+            this.txtBasePrice2.Location = new System.Drawing.Point(167, 186);
+            this.txtBasePrice2.Name = "txtBasePrice2";
+            this.txtBasePrice2.Size = new System.Drawing.Size(100, 20);
+            this.txtBasePrice2.TabIndex = 30;
             // 
-            // textBox3
+            // txtDescription2
             // 
-            this.textBox3.Location = new System.Drawing.Point(135, 160);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 29;
+            this.txtDescription2.Location = new System.Drawing.Point(167, 156);
+            this.txtDescription2.Name = "txtDescription2";
+            this.txtDescription2.Size = new System.Drawing.Size(100, 20);
+            this.txtDescription2.TabIndex = 29;
             // 
-            // textBox4
+            // txtEndDate2
             // 
-            this.textBox4.Location = new System.Drawing.Point(135, 192);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 30;
+            this.txtEndDate2.Location = new System.Drawing.Point(167, 126);
+            this.txtEndDate2.Name = "txtEndDate2";
+            this.txtEndDate2.Size = new System.Drawing.Size(100, 20);
+            this.txtEndDate2.TabIndex = 28;
             // 
-            // textBox5
+            // txtStartDate2
             // 
-            this.textBox5.Location = new System.Drawing.Point(135, 221);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 31;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.update_button);
-            this.panel4.Controls.Add(this.textBox6);
-            this.panel4.Controls.Add(this.textBox7);
-            this.panel4.Controls.Add(this.textBox8);
-            this.panel4.Controls.Add(this.textBox9);
-            this.panel4.Controls.Add(this.textBox10);
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.textBox11);
-            this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.textBox12);
-            this.panel4.Controls.Add(this.label9);
-            this.panel4.Controls.Add(this.textBox13);
-            this.panel4.Location = new System.Drawing.Point(983, 205);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(267, 331);
-            this.panel4.TabIndex = 28;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(135, 221);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 31;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(135, 192);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 30;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(135, 160);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 29;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(135, 126);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 28;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(135, 85);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 27;
+            this.txtStartDate2.Location = new System.Drawing.Point(167, 85);
+            this.txtStartDate2.Name = "txtStartDate2";
+            this.txtStartDate2.Size = new System.Drawing.Size(100, 20);
+            this.txtStartDate2.TabIndex = 27;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 221);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1, 221);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.Size = new System.Drawing.Size(162, 20);
             this.label2.TabIndex = 26;
             this.label2.Text = "Agency Commission";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(33, 195);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 195);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(92, 20);
             this.label4.TabIndex = 25;
             this.label4.Text = "Base Price";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 163);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(3, 163);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 13);
+            this.label5.Size = new System.Drawing.Size(95, 20);
             this.label5.TabIndex = 24;
             this.label5.Text = "Description";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 129);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 126);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(79, 20);
             this.label6.TabIndex = 23;
             this.label6.Text = "End Date";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 85);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 85);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(55, 13);
+            this.label7.Size = new System.Drawing.Size(86, 20);
             this.label7.TabIndex = 22;
             this.label7.Text = "Start Date";
             // 
@@ -506,18 +543,18 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(1, 9);
+            this.label8.Location = new System.Drawing.Point(3, 11);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(95, 20);
             this.label8.TabIndex = 0;
             this.label8.Text = "Package ID";
             // 
-            // textBox12
+            // txtPackId2
             // 
-            this.textBox12.Location = new System.Drawing.Point(135, 11);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 15;
+            this.txtPackId2.Location = new System.Drawing.Point(167, 11);
+            this.txtPackId2.Name = "txtPackId2";
+            this.txtPackId2.Size = new System.Drawing.Size(100, 20);
+            this.txtPackId2.TabIndex = 15;
             // 
             // label9
             // 
@@ -529,113 +566,118 @@
             this.label9.TabIndex = 20;
             this.label9.Text = "Package Name";
             // 
-            // textBox13
+            // txtPackName2
             // 
-            this.textBox13.Location = new System.Drawing.Point(135, 50);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 16;
+            this.txtPackName2.Location = new System.Drawing.Point(167, 50);
+            this.txtPackName2.Name = "txtPackName2";
+            this.txtPackName2.Size = new System.Drawing.Size(100, 20);
+            this.txtPackName2.TabIndex = 16;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.Controls.Add(this.textBox14);
-            this.panel2.Controls.Add(this.textBox15);
-            this.panel2.Controls.Add(this.Delete_button);
-            this.panel2.Controls.Add(this.textBox16);
-            this.panel2.Controls.Add(this.textBox17);
-            this.panel2.Controls.Add(this.textBox18);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.textBox19);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Controls.Add(this.textBox20);
-            this.panel2.Controls.Add(this.label16);
-            this.panel2.Controls.Add(this.textBox21);
-            this.panel2.Location = new System.Drawing.Point(1256, 205);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 331);
-            this.panel2.TabIndex = 32;
+            this.panel3.Controls.Add(this.txtAgencyComm3);
+            this.panel3.Controls.Add(this.txtPackBasePrice3);
+            this.panel3.Controls.Add(this.txtPackDescription3);
+            this.panel3.Controls.Add(this.Delete_button);
+            this.panel3.Controls.Add(this.txtPackEndDate3);
+            this.panel3.Controls.Add(this.txtStartDate3);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.label11);
+            this.panel3.Controls.Add(this.label12);
+            this.panel3.Controls.Add(this.label13);
+            this.panel3.Controls.Add(this.label14);
+            this.panel3.Controls.Add(this.textBox19);
+            this.panel3.Controls.Add(this.label15);
+            this.panel3.Controls.Add(this.txtPackId3);
+            this.panel3.Controls.Add(this.label16);
+            this.panel3.Controls.Add(this.txtPackName3);
+            this.panel3.Location = new System.Drawing.Point(1274, 205);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(285, 331);
+            this.panel3.TabIndex = 34;
             // 
-            // textBox14
+            // txtAgencyComm3
             // 
-            this.textBox14.Location = new System.Drawing.Point(135, 221);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 31;
+            this.txtAgencyComm3.Location = new System.Drawing.Point(167, 221);
+            this.txtAgencyComm3.Name = "txtAgencyComm3";
+            this.txtAgencyComm3.Size = new System.Drawing.Size(100, 20);
+            this.txtAgencyComm3.TabIndex = 31;
             // 
-            // textBox15
+            // txtPackBasePrice3
             // 
-            this.textBox15.Location = new System.Drawing.Point(135, 192);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 30;
+            this.txtPackBasePrice3.Location = new System.Drawing.Point(167, 186);
+            this.txtPackBasePrice3.Name = "txtPackBasePrice3";
+            this.txtPackBasePrice3.Size = new System.Drawing.Size(100, 20);
+            this.txtPackBasePrice3.TabIndex = 30;
             // 
-            // textBox16
+            // txtPackDescription3
             // 
-            this.textBox16.Location = new System.Drawing.Point(135, 160);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 29;
+            this.txtPackDescription3.Location = new System.Drawing.Point(167, 156);
+            this.txtPackDescription3.Name = "txtPackDescription3";
+            this.txtPackDescription3.Size = new System.Drawing.Size(100, 20);
+            this.txtPackDescription3.TabIndex = 29;
             // 
-            // textBox17
+            // txtPackEndDate3
             // 
-            this.textBox17.Location = new System.Drawing.Point(135, 126);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(100, 20);
-            this.textBox17.TabIndex = 28;
+            this.txtPackEndDate3.Location = new System.Drawing.Point(167, 126);
+            this.txtPackEndDate3.Name = "txtPackEndDate3";
+            this.txtPackEndDate3.Size = new System.Drawing.Size(100, 20);
+            this.txtPackEndDate3.TabIndex = 28;
             // 
-            // textBox18
+            // txtStartDate3
             // 
-            this.textBox18.Location = new System.Drawing.Point(135, 85);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 20);
-            this.textBox18.TabIndex = 27;
+            this.txtStartDate3.Location = new System.Drawing.Point(167, 85);
+            this.txtStartDate3.Name = "txtStartDate3";
+            this.txtStartDate3.Size = new System.Drawing.Size(100, 20);
+            this.txtStartDate3.TabIndex = 27;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(34, 221);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(1, 221);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(101, 13);
+            this.label10.Size = new System.Drawing.Size(162, 20);
             this.label10.TabIndex = 26;
             this.label10.Text = "Agency Commission";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(33, 195);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(1, 195);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(58, 13);
+            this.label11.Size = new System.Drawing.Size(92, 20);
             this.label11.TabIndex = 25;
             this.label11.Text = "Base Price";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(37, 163);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(3, 163);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 13);
+            this.label12.Size = new System.Drawing.Size(95, 20);
             this.label12.TabIndex = 24;
             this.label12.Text = "Description";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(34, 129);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(3, 126);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(52, 13);
+            this.label13.Size = new System.Drawing.Size(79, 20);
             this.label13.TabIndex = 23;
             this.label13.Text = "End Date";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(34, 85);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 85);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(55, 13);
+            this.label14.Size = new System.Drawing.Size(86, 20);
             this.label14.TabIndex = 22;
             this.label14.Text = "Start Date";
             // 
@@ -657,13 +699,14 @@
             this.label15.Size = new System.Drawing.Size(95, 20);
             this.label15.TabIndex = 0;
             this.label15.Text = "Package ID";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
-            // textBox20
+            // txtPackId3
             // 
-            this.textBox20.Location = new System.Drawing.Point(135, 11);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(100, 20);
-            this.textBox20.TabIndex = 15;
+            this.txtPackId3.Location = new System.Drawing.Point(167, 11);
+            this.txtPackId3.Name = "txtPackId3";
+            this.txtPackId3.Size = new System.Drawing.Size(100, 20);
+            this.txtPackId3.TabIndex = 15;
             // 
             // label16
             // 
@@ -675,33 +718,116 @@
             this.label16.TabIndex = 20;
             this.label16.Text = "Package Name";
             // 
-            // textBox21
+            // txtPackName3
             // 
-            this.textBox21.Location = new System.Drawing.Point(135, 50);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(100, 20);
-            this.textBox21.TabIndex = 16;
+            this.txtPackName3.Location = new System.Drawing.Point(167, 50);
+            this.txtPackName3.Name = "txtPackName3";
+            this.txtPackName3.Size = new System.Drawing.Size(100, 20);
+            this.txtPackName3.TabIndex = 16;
             // 
-            // update_button
+            // PkDescription
             // 
-            this.update_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.update_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("update_button.BackgroundImage")));
-            this.update_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.update_button.Location = new System.Drawing.Point(36, 271);
-            this.update_button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(75, 44);
-            this.update_button.TabIndex = 32;
-            this.update_button.UseVisualStyleBackColor = false;
+            this.PkDescription.AutoSize = true;
+            this.PkDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PkDescription.Location = new System.Drawing.Point(593, 157);
+            this.PkDescription.Name = "PkDescription";
+            this.PkDescription.Size = new System.Drawing.Size(79, 17);
+            this.PkDescription.TabIndex = 35;
+            this.PkDescription.Text = "Description";
+            // 
+            // PkStart
+            // 
+            this.PkStart.AutoSize = true;
+            this.PkStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PkStart.Location = new System.Drawing.Point(898, 121);
+            this.PkStart.Name = "PkStart";
+            this.PkStart.Size = new System.Drawing.Size(76, 17);
+            this.PkStart.TabIndex = 36;
+            this.PkStart.Text = "Start Date ";
+            // 
+            // PkBasePrice
+            // 
+            this.PkBasePrice.AutoSize = true;
+            this.PkBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PkBasePrice.Location = new System.Drawing.Point(898, 161);
+            this.PkBasePrice.Name = "PkBasePrice";
+            this.PkBasePrice.Size = new System.Drawing.Size(76, 17);
+            this.PkBasePrice.TabIndex = 37;
+            this.PkBasePrice.Text = "Base Price";
+            // 
+            // PkEnd
+            // 
+            this.PkEnd.AutoSize = true;
+            this.PkEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PkEnd.Location = new System.Drawing.Point(1186, 114);
+            this.PkEnd.Name = "PkEnd";
+            this.PkEnd.Size = new System.Drawing.Size(67, 17);
+            this.PkEnd.TabIndex = 38;
+            this.PkEnd.Text = "End Date";
+            // 
+            // AgencyComm
+            // 
+            this.AgencyComm.AutoSize = true;
+            this.AgencyComm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AgencyComm.Location = new System.Drawing.Point(1186, 157);
+            this.AgencyComm.Name = "AgencyComm";
+            this.AgencyComm.Size = new System.Drawing.Size(134, 17);
+            this.AgencyComm.TabIndex = 39;
+            this.AgencyComm.Text = "Agency Commission";
+            // 
+            // txtPkDesc
+            // 
+            this.txtPkDesc.Location = new System.Drawing.Point(717, 157);
+            this.txtPkDesc.Name = "txtPkDesc";
+            this.txtPkDesc.Size = new System.Drawing.Size(100, 20);
+            this.txtPkDesc.TabIndex = 40;
+            // 
+            // txtPkStart
+            // 
+            this.txtPkStart.Location = new System.Drawing.Point(980, 114);
+            this.txtPkStart.Name = "txtPkStart";
+            this.txtPkStart.Size = new System.Drawing.Size(100, 20);
+            this.txtPkStart.TabIndex = 41;
+            // 
+            // txtBasePrice
+            // 
+            this.txtBasePrice.Location = new System.Drawing.Point(980, 157);
+            this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.Size = new System.Drawing.Size(100, 20);
+            this.txtBasePrice.TabIndex = 42;
+            // 
+            // txtPkEnd
+            // 
+            this.txtPkEnd.Location = new System.Drawing.Point(1337, 114);
+            this.txtPkEnd.Name = "txtPkEnd";
+            this.txtPkEnd.Size = new System.Drawing.Size(100, 20);
+            this.txtPkEnd.TabIndex = 43;
+            // 
+            // txtAgencyComm
+            // 
+            this.txtAgencyComm.Location = new System.Drawing.Point(1337, 154);
+            this.txtAgencyComm.Name = "txtAgencyComm";
+            this.txtAgencyComm.Size = new System.Drawing.Size(100, 20);
+            this.txtAgencyComm.TabIndex = 44;
             // 
             // frmPackages
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(169)))), ((int)(((byte)(245)))));
-            this.ClientSize = new System.Drawing.Size(1474, 548);
+            this.ClientSize = new System.Drawing.Size(1582, 548);
+            this.Controls.Add(this.txtAgencyComm);
+            this.Controls.Add(this.txtPkEnd);
+            this.Controls.Add(this.txtBasePrice);
+            this.Controls.Add(this.txtPkStart);
+            this.Controls.Add(this.txtPkDesc);
+            this.Controls.Add(this.AgencyComm);
+            this.Controls.Add(this.PkEnd);
+            this.Controls.Add(this.PkBasePrice);
+            this.Controls.Add(this.PkStart);
+            this.Controls.Add(this.PkDescription);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.txtDelete);
             this.Controls.Add(this.txtUpdate);
             this.Controls.Add(this.txtAdd);
@@ -721,10 +847,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -755,22 +881,23 @@
         private System.Windows.Forms.TextBox txtUpdate;
         private System.Windows.Forms.TextBox txtDelete;
         private System.Windows.Forms.TextBox txtHide1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtAgencyCommission;
+        private System.Windows.Forms.TextBox txtBasePrice1;
+        private System.Windows.Forms.TextBox txtDescription1;
+        private System.Windows.Forms.TextBox txtEndDate1;
+        private System.Windows.Forms.TextBox txtStartDate1;
         private System.Windows.Forms.Label lblAgencyComm;
         private System.Windows.Forms.Label lblBasePrice;
         private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.Label lblStartDate;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Button update_button;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox txtAgencyComm2;
+        private System.Windows.Forms.TextBox txtBasePrice2;
+        private System.Windows.Forms.TextBox txtDescription2;
+        private System.Windows.Forms.TextBox txtEndDate2;
+        private System.Windows.Forms.TextBox txtStartDate2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -778,15 +905,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtPackId2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txtPackName2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TextBox txtAgencyComm3;
+        private System.Windows.Forms.TextBox txtPackBasePrice3;
+        private System.Windows.Forms.TextBox txtPackDescription3;
+        private System.Windows.Forms.TextBox txtPackEndDate3;
+        private System.Windows.Forms.TextBox txtStartDate3;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
@@ -794,9 +921,18 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtPackId3;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.Button update_button;
+        private System.Windows.Forms.TextBox txtPackName3;
+        private System.Windows.Forms.Label PkDescription;
+        private System.Windows.Forms.Label PkStart;
+        private System.Windows.Forms.Label PkBasePrice;
+        private System.Windows.Forms.Label PkEnd;
+        private System.Windows.Forms.Label AgencyComm;
+        private System.Windows.Forms.TextBox txtPkDesc;
+        private System.Windows.Forms.TextBox txtPkStart;
+        private System.Windows.Forms.TextBox txtBasePrice;
+        private System.Windows.Forms.TextBox txtPkEnd;
+        private System.Windows.Forms.TextBox txtAgencyComm;
     }
 }
