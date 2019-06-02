@@ -26,7 +26,7 @@ namespace Workshop4
         {
 
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.OldLace;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -361,6 +361,11 @@ namespace Workshop4
         private void button6_Click(object sender, EventArgs e)
         {
             panel3.Visible = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
