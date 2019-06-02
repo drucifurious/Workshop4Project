@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BusinessLayer;
 
+
 namespace DataLayer
 {
     public static class PackageDB
@@ -18,14 +19,13 @@ namespace DataLayer
 
         try
         {
-
             string sql = "SELECT * FROM Packages ";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
             while (reader.Read())
             {
                 Packages s = new Packages();
-                s.PakName = reader["PakName"].ToString();
+                s.PkgName = reader["PkgName"].ToString();
                 s.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
                 s.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
                 s.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
@@ -62,7 +62,7 @@ namespace DataLayer
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
-                    s.PakName = reader["PakName"].ToString();
+                    s.PkgName = reader["PakName"].ToString();
                     s.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
                     s.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
                     s.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
@@ -148,7 +148,7 @@ namespace DataLayer
                 {
                     Packages p = new Packages();
                     p.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
-                    p.PakName = reader["PakName"].ToString();
+                    p.PkgName = reader["PakName"].ToString();
                     p.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
                     p.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
                     p.PkgDesc = reader["PkgDesc"].ToString();

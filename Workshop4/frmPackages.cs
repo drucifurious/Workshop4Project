@@ -43,7 +43,7 @@ namespace Workshop4
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowTemplate.Height = 65;
             //label3.Text = dataGridView1.CurrentCell.Value.ToString();
-            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
+            //dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
 
         }
 
@@ -191,7 +191,7 @@ namespace Workshop4
                 int id = Convert.ToInt32(lblPakID.Text);
                 pk = DataLayer.PackageDB.GetPackage(id);
                 lblPakID.Text = pk.PackageId.ToString();
-                lblPackageName.Text = pk.PakName;
+                lblPackageName.Text = pk.PkgName;
                 lblPackageName.BackColor = System.Drawing.Color.LightBlue;
                 //locate cursor to updated record
                 Locate(lblPakID.Text);
@@ -216,7 +216,7 @@ namespace Workshop4
                     int ID = Convert.ToInt32(txtPackageId.Text);
                     pk = DataLayer.PackageDB.GetPackage (ID);
                     lblPakID.Text = pk.PackageId.ToString();
-                    txtPkgName.Text = pk.PakName;
+                    txtPkgName.Text = pk.PkgName;
                 }
             }
 
