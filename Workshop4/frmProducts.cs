@@ -82,10 +82,7 @@ namespace Workshop4
         }
 
         
-        private void button4_Click(object sender, EventArgs e)
-        {
 
-        }
 
         //add new record
         private void Add_button_Click(object sender, EventArgs e)
@@ -242,6 +239,43 @@ namespace Workshop4
         {
             Locate(textBox5.Text);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = true;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panel3.Visible = false;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Home h1 = new Home();
+            h1.Show();
+        }
     }
-    }
+}
 
