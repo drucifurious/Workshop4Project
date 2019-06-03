@@ -123,6 +123,8 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "PkgName"});
             this.comboBox1.Location = new System.Drawing.Point(175, 70);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
@@ -152,11 +154,12 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 139);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 97);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(426, 397);
+            this.dataGridView1.Size = new System.Drawing.Size(426, 439);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+           // this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // txtPackageId
             // 
@@ -164,7 +167,6 @@
             this.txtPackageId.Name = "txtPackageId";
             this.txtPackageId.Size = new System.Drawing.Size(100, 20);
             this.txtPackageId.TabIndex = 6;
-            this.txtPackageId.TextChanged += new System.EventHandler(this.txtPackageId_TextChanged);
             // 
             // txtPkgName
             // 
@@ -172,7 +174,6 @@
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(100, 20);
             this.txtPkgName.TabIndex = 7;
-          //  this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
             // 
             // lblPkID
             // 
@@ -183,8 +184,6 @@
             this.lblPkID.Size = new System.Drawing.Size(169, 17);
             this.lblPkID.TabIndex = 8;
             this.lblPkID.Text = "Pelase Enter Package ID ";
-            this.lblPkID.MouseEnter += new System.EventHandler(this.lblPkID_MouseEnter);
-            this.lblPkID.MouseLeave += new System.EventHandler(this.lblPkID_MouseLeave);
             // 
             // PkName
             // 
@@ -195,9 +194,6 @@
             this.PkName.Size = new System.Drawing.Size(108, 17);
             this.PkName.TabIndex = 9;
             this.PkName.Text = " Package Name";
-            this.PkName.Click += new System.EventHandler(this.PkName_Click);
-            this.PkName.MouseEnter += new System.EventHandler(this.PkName_MouseEnter);
-            this.PkName.MouseLeave += new System.EventHandler(this.PkName_MouseLeave);
             // 
             // lblPackageName
             // 
@@ -215,7 +211,6 @@
             this.txtPkName1.Name = "txtPkName1";
             this.txtPkName1.Size = new System.Drawing.Size(100, 20);
             this.txtPkName1.TabIndex = 16;
-            this.txtPkName1.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // txtPkId1
             // 
@@ -282,7 +277,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(285, 331);
             this.panel1.TabIndex = 22;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtAgencyCommission
             // 
@@ -377,7 +371,6 @@
             this.txtHide1.Size = new System.Drawing.Size(100, 38);
             this.txtHide1.TabIndex = 21;
             this.txtHide1.Text = "  Hide";
-            this.txtHide1.TextChanged += new System.EventHandler(this.txtHide1_TextChanged);
             // 
             // txtAdd
             // 
@@ -387,7 +380,6 @@
             this.txtAdd.Size = new System.Drawing.Size(233, 31);
             this.txtAdd.TabIndex = 23;
             this.txtAdd.Text = "Please Click to Add";
-            this.txtAdd.TextChanged += new System.EventHandler(this.txtAdd_TextChanged);
             // 
             // txtUpdate
             // 
@@ -397,7 +389,6 @@
             this.txtUpdate.Size = new System.Drawing.Size(233, 31);
             this.txtUpdate.TabIndex = 24;
             this.txtUpdate.Text = "Please Click to Update";
-            this.txtUpdate.TextChanged += new System.EventHandler(this.txtUpdate_TextChanged);
             // 
             // txtDelete
             // 
@@ -407,7 +398,6 @@
             this.txtDelete.Size = new System.Drawing.Size(243, 31);
             this.txtDelete.TabIndex = 25;
             this.txtDelete.Text = "Please Click to Delete";
-            this.txtDelete.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
             // update_button
             // 
@@ -699,7 +689,6 @@
             this.label15.Size = new System.Drawing.Size(95, 20);
             this.label15.TabIndex = 0;
             this.label15.Text = "Package ID";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // txtPackId3
             // 
