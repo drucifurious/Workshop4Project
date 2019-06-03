@@ -16,10 +16,8 @@ namespace DataLayer
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             List<Supplier> results = new List<Supplier>();
-
             try
             {
-
                 string sql = "SELECT SupplierId, SupName   FROM Suppliers ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);

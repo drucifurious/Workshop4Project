@@ -23,30 +23,35 @@ namespace Workshop4
         }
             private void PackagesBtn_Click(object sender, EventArgs e)
             {
+                
                 frmPackages p = new frmPackages();
                 p.Show();
             }
 
             private void ProductsBtn_Click(object sender, EventArgs e)
             {
+                
                 frmProducts pr = new frmProducts();
                 pr.Show();
             }
 
             private void SuppliersBtn_Click(object sender, EventArgs e)
             {
+                
                 frmSupplier1 s = new frmSupplier1();
                 s.Show();
             }
 
             private void ProdSuppBtn_Click(object sender, EventArgs e)
             {
+                
                 frmProductsSuppliers ps = new frmProductsSuppliers();
                 ps.Show();
             }
 
             private void PackProdSuppBtn_Click(object sender, EventArgs e)
             {
+                
                 frmPackagesProductsSuppliers pps = new frmPackagesProductsSuppliers();
                 pps.Show();
             }

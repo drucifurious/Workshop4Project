@@ -12,10 +12,10 @@ namespace DataLayer
     public static class Product_SuppliersDB
     {
 
-        public static List<Supplier> GetProduct_Suppliers()
+        public static List<Products_suppliers> GetProduct_Suppliers()
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
-            List<Product_Suppliers> results = new List<Product_Suppliers>();
+            List<Products_suppliers> results = new List<Products_suppliers>();
 
             try
             {
@@ -25,10 +25,13 @@ namespace DataLayer
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
-                    Products_Suppliers s = new Products_Suppliers();
-                    s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
-                    s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
-                    s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                    Products_suppliers s = new Products_suppliers();
+                    
+                   // s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
+
+                    //s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
+                    //s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                      s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
                     results.Add(s);
              
                 }
@@ -45,15 +48,14 @@ namespace DataLayer
 
 
 
-        public static Supplier GetProduct_Suppliers(int ID)
+        public static Products_suppliers GetProduct_Suppliers(int ID)
         {
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
-            Product_Suppliers s = new Product_Suppliers();
+            Products_suppliers s = new Products_suppliers();
             try
             {
-                string sql = "SELECT * FROM [dbo].[Products_Suppliers] ";
+                string sql = "SELECT * FROM [dbo].[Products_Suppliers] where ProductSupplierId="+ID;
                 SqlCommand command = new SqlCommand(sql, connection);
-
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
@@ -70,29 +72,26 @@ namespace DataLayer
             {
                 connection.Close();
             }
-
-
             return s;
-
         }
 
 
        
 
 
-        public static List<Product_Suppliers> orderby(string coluName)
+        public static List<Products_suppliers> orderby(string coluName)
         {
             SqlConnection connection = TRAExpertsDB.GetConnection();
-            List<Product_Suppliers> results = new List<Product_Suppliers>();
+            List<Products_suppliers> results = new List<Products_suppliers>();
             try
             {
                 string sql = "SELECT * FROM [dbo].[Products_Suppliers] order by" + "'" + coluName + "'";
 
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
-                while (reader.Read())
+                while (reader.Read()) 
                 {
-                    Product_Suppliers s = new Product_Suppliers();
+                    Products_suppliers s = new Products_suppliers ();
                     s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
                     s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
                     s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());                                              

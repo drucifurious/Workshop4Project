@@ -20,7 +20,7 @@ namespace DataLayer
             try
             {
                
-                string sql = "SELECT * ProductId, ProdName   FROM Products ";
+                string sql = "SELECT ProductId, ProdName   FROM Products ";
                 SqlCommand command = new SqlCommand(sql, connection);
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
@@ -116,6 +116,34 @@ namespace DataLayer
 
             int qq = command.ExecuteNonQuery();
             return qq;
+
+        }
+
+        public static List<Products> orderby(string ProdName)
+        {
+            SqlConnection connection = TRAExpertsDB.GetConnection();
+            List<Products> results = new List<Products>();
+            try
+            {
+                string sql = "SELECT * FROM Products order by" + "'" + ProdName + "'";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Products p = new Products();
+                    p.ProductId = Convert.ToInt32(reader["ProductId"].ToString());
+                    p.ProdName = reader["ProdName"].ToString();
+                    results.Add(p);
+                }
+            }
+            catch { }
+
+            finally
+            {
+                connection.Close();
+            }
+            return results;
 
         }
 

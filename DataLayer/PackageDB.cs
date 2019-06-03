@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using BusinessLayer;
 
+
 namespace DataLayer
 {
     public static class PackageDB
@@ -18,7 +19,6 @@ namespace DataLayer
 
         try
         {
-
             string sql = "SELECT * FROM Packages ";
             SqlCommand command = new SqlCommand(sql, connection);
             SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
@@ -32,9 +32,7 @@ namespace DataLayer
                 s.PkgDesc = reader["PkgDesc"].ToString();
                 s.PkgBasePrice = Convert.ToDouble(reader["PkgBasePrice"].ToString());
                 s.PkgAgencyCommission = Convert.ToDouble(reader["PkgAgencyCommission"].ToString());
-
                 results.Add(s);
-
             }
         }
         catch { }
@@ -54,14 +52,13 @@ namespace DataLayer
             Packages s = new Packages();
             try
             {
-                string sql = "SELECT * " + "FROM Packages " +
-                    "WHERE PackageID =" + PkgId;
+                string sql = "SELECT * FROM Packages WHERE PackageID =" + PkgId;
                 SqlCommand command = new SqlCommand(sql, connection);
 
                 SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
                 while (reader.Read())
                 {
-                    s.PkgName = reader["PkgName"].ToString();
+                    s.PkgName = reader["PakName"].ToString();
                     s.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
                     s.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
                     s.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
@@ -83,9 +80,10 @@ namespace DataLayer
         }
 
 
-        public static int AddPackage(string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommission)
+        public static int AddPackage(string PkgName, DateTime PkgStartDate, DateTime PkgEndDate, string PkgDesc, double PkgBasePrice, double PkgAgencyCommission)
         {
-            string sql = "INSERT INTO Packages (PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission)  VALUE (@PkgName,@PkgStartDate,@PkgEndDate,@PkgDesc,@PkgBasePrice,@PkgAgencyCommission)";
+            string sql = "INSERT INTO Packages (PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission)  VALUES (@PkgName,@PkgStartDate,@PkgEndDate,@PkgDesc,@PkgBasePrice,@PkgAgencyCommission)";
+           // string sql = "INSERT INTO Packages (PkgName,PkgStartDate,PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission)  VALUES ('Ye','2019-06-06','2019-06-06','Ye',100,120)";
             SqlConnection connection = DataLayer.TRAExpertsDB.GetConnection();
             SqlCommand command = new SqlCommand(sql, connection);
 
@@ -110,10 +108,9 @@ namespace DataLayer
             int qq = command.ExecuteNonQuery();
 
             return qq;
-
         }
 
-        public static int UpdaPackage(int PkgId, string PkgName, string PkgStartDate, string PkgEndDate, string PkgDesc, string PkgBasePrice, string PkgAgencyCommission)
+        public static int UpdaPackage(int PkgId, string PkgName, DateTime PkgStartDate, DateTime PkgEndDate, string PkgDesc, Double PkgBasePrice, Double PkgAgencyCommission)
         {
 
 
@@ -131,6 +128,39 @@ namespace DataLayer
 
             int qq = command.ExecuteNonQuery();
             return qq;
+
+        }
+        public static List<Packages> orderby(string coluName)
+        {
+            SqlConnection connection = TRAExpertsDB.GetConnection();
+            List<Packages> results = new List<Packages>();
+            try
+            {
+                string sql = "SELECT * FROM Packages order by" + "'" + coluName + "'";
+
+                SqlCommand command = new SqlCommand(sql, connection);
+                SqlDataReader reader = command.ExecuteReader(System.Data.CommandBehavior.CloseConnection);
+                while (reader.Read())
+                {
+                    Packages p = new Packages();
+                    p.PackageId = Convert.ToInt32(reader["PackageId"].ToString());
+                    p.PkgName = reader["PkgName"].ToString();
+                    p.PkgStartDate = Convert.ToDateTime(reader["PkgStartDate"].ToString());
+                    p.PkgEndDate = Convert.ToDateTime(reader["PkgEndDate"].ToString());
+                    p.PkgDesc = reader["PkgDesc"].ToString();
+                    p.PkgBasePrice = Convert.ToDouble(reader["PkgBasePrice"].ToString());
+                    p.PkgAgencyCommission = Convert.ToDouble( reader["PkgAgencyCommission"].ToString());
+
+                    results.Add(p);
+                }
+            }
+            catch { }
+
+            finally
+            {
+                connection.Close();
+            }
+            return results;
 
         }
 
