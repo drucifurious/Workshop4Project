@@ -25,7 +25,7 @@ namespace Workshop4
         private void ProductsSuppliers_Load(object sender, EventArgs e)
         {
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.OldLace;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -64,6 +64,18 @@ namespace Workshop4
 
         }
 
-     
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int index = dataGridView1.CurrentCell.RowIndex;
+            textBox1.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+
+            textBox2.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+            textBox3.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

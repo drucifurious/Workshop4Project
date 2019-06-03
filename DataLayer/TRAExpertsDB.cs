@@ -13,7 +13,7 @@ namespace DataLayer
         {
             //Drew's local connection
             SqlConnection connection = new SqlConnection();
-            string ConnectionString = "Data Source=DESKTOP-I8OAD8M;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
+            string ConnectionString = "Data Source=SoftDev;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
             connection.ConnectionString = ConnectionString;
 
             //Remote DB

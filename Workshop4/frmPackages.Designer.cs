@@ -35,10 +35,6 @@
             this.lblSorted = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.txtPackageId = new System.Windows.Forms.TextBox();
-            this.txtPkgName = new System.Windows.Forms.TextBox();
-            this.lblPkID = new System.Windows.Forms.Label();
-            this.PkName = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
@@ -96,20 +92,16 @@
             this.txtPackId3 = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtPackName3 = new System.Windows.Forms.TextBox();
-            this.PkDescription = new System.Windows.Forms.Label();
-            this.PkStart = new System.Windows.Forms.Label();
-            this.PkBasePrice = new System.Windows.Forms.Label();
-            this.PkEnd = new System.Windows.Forms.Label();
-            this.AgencyComm = new System.Windows.Forms.Label();
-            this.txtPkDesc = new System.Windows.Forms.TextBox();
-            this.txtPkStart = new System.Windows.Forms.TextBox();
-            this.txtBasePrice = new System.Windows.Forms.TextBox();
-            this.txtPkEnd = new System.Windows.Forms.TextBox();
-            this.txtAgencyComm = new System.Windows.Forms.TextBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,7 +137,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(405, 25);
+            this.label3.Location = new System.Drawing.Point(102, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(229, 24);
             this.label3.TabIndex = 4;
@@ -160,40 +152,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(426, 439);
             this.dataGridView1.TabIndex = 5;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
-            // 
-            // txtPackageId
-            // 
-            this.txtPackageId.Location = new System.Drawing.Point(717, 74);
-            this.txtPackageId.Name = "txtPackageId";
-            this.txtPackageId.Size = new System.Drawing.Size(100, 20);
-            this.txtPackageId.TabIndex = 6;
-            // 
-            // txtPkgName
-            // 
-            this.txtPkgName.Location = new System.Drawing.Point(717, 118);
-            this.txtPkgName.Name = "txtPkgName";
-            this.txtPkgName.Size = new System.Drawing.Size(100, 20);
-            this.txtPkgName.TabIndex = 7;
-            // 
-            // lblPkID
-            // 
-            this.lblPkID.AutoSize = true;
-            this.lblPkID.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPkID.Location = new System.Drawing.Point(517, 77);
-            this.lblPkID.Name = "lblPkID";
-            this.lblPkID.Size = new System.Drawing.Size(169, 17);
-            this.lblPkID.TabIndex = 8;
-            this.lblPkID.Text = "Pelase Enter Package ID ";
-            // 
-            // PkName
-            // 
-            this.PkName.AutoSize = true;
-            this.PkName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PkName.Location = new System.Drawing.Point(583, 121);
-            this.PkName.Name = "PkName";
-            this.PkName.Size = new System.Drawing.Size(108, 17);
-            this.PkName.TabIndex = 9;
-            this.PkName.Text = " Package Name";
             // 
             // lblPackageName
             // 
@@ -277,6 +235,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(285, 331);
             this.panel1.TabIndex = 22;
+            this.panel1.Visible = false;
             // 
             // txtAgencyCommission
             // 
@@ -371,6 +330,7 @@
             this.txtHide1.Size = new System.Drawing.Size(100, 38);
             this.txtHide1.TabIndex = 21;
             this.txtHide1.Text = "  Hide";
+            this.txtHide1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtHide1_MouseClick);
             // 
             // txtAdd
             // 
@@ -380,6 +340,7 @@
             this.txtAdd.Size = new System.Drawing.Size(233, 31);
             this.txtAdd.TabIndex = 23;
             this.txtAdd.Text = "Please Click to Add";
+            this.txtAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtAdd_MouseClick);
             // 
             // txtUpdate
             // 
@@ -389,6 +350,7 @@
             this.txtUpdate.Size = new System.Drawing.Size(233, 31);
             this.txtUpdate.TabIndex = 24;
             this.txtUpdate.Text = "Please Click to Update";
+            this.txtUpdate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtUpdate_MouseClick);
             // 
             // txtDelete
             // 
@@ -398,6 +360,7 @@
             this.txtDelete.Size = new System.Drawing.Size(243, 31);
             this.txtDelete.TabIndex = 25;
             this.txtDelete.Text = "Please Click to Delete";
+            this.txtDelete.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDelete_MouseClick);
             // 
             // update_button
             // 
@@ -434,6 +397,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(285, 331);
             this.panel2.TabIndex = 33;
+            this.panel2.Visible = false;
             // 
             // txtAgencyComm2
             // 
@@ -528,6 +492,7 @@
             this.textBox11.Size = new System.Drawing.Size(100, 38);
             this.textBox11.TabIndex = 21;
             this.textBox11.Text = "  Hide";
+            this.textBox11.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox11_MouseClick);
             // 
             // label8
             // 
@@ -585,6 +550,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(285, 331);
             this.panel3.TabIndex = 34;
+            this.panel3.Visible = false;
             // 
             // txtAgencyComm3
             // 
@@ -679,6 +645,7 @@
             this.textBox19.Size = new System.Drawing.Size(100, 38);
             this.textBox19.TabIndex = 21;
             this.textBox19.Text = "  Hide";
+            this.textBox19.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox19_MouseClick);
             // 
             // label15
             // 
@@ -714,90 +681,42 @@
             this.txtPackName3.Size = new System.Drawing.Size(100, 20);
             this.txtPackName3.TabIndex = 16;
             // 
-            // PkDescription
+            // dataGridView2
             // 
-            this.PkDescription.AutoSize = true;
-            this.PkDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PkDescription.Location = new System.Drawing.Point(593, 157);
-            this.PkDescription.Name = "PkDescription";
-            this.PkDescription.Size = new System.Drawing.Size(79, 17);
-            this.PkDescription.TabIndex = 35;
-            this.PkDescription.Text = "Description";
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(476, 36);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(312, 119);
+            this.dataGridView2.TabIndex = 35;
+            //this.dataGridView2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView2_CellMouseClick);
             // 
-            // PkStart
+            // label17
             // 
-            this.PkStart.AutoSize = true;
-            this.PkStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PkStart.Location = new System.Drawing.Point(898, 121);
-            this.PkStart.Name = "PkStart";
-            this.PkStart.Size = new System.Drawing.Size(76, 17);
-            this.PkStart.TabIndex = 36;
-            this.PkStart.Text = "Start Date ";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(531, 9);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(221, 24);
+            this.label17.TabIndex = 36;
+            this.label17.Text = "Data of Products Table";
             // 
-            // PkBasePrice
+            // label18
             // 
-            this.PkBasePrice.AutoSize = true;
-            this.PkBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PkBasePrice.Location = new System.Drawing.Point(898, 161);
-            this.PkBasePrice.Name = "PkBasePrice";
-            this.PkBasePrice.Size = new System.Drawing.Size(76, 17);
-            this.PkBasePrice.TabIndex = 37;
-            this.PkBasePrice.Text = "Base Price";
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(855, 9);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(309, 24);
+            this.label18.TabIndex = 37;
+            this.label18.Text = "Data of ProductsSuppliers Table";
             // 
-            // PkEnd
+            // dataGridView3
             // 
-            this.PkEnd.AutoSize = true;
-            this.PkEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PkEnd.Location = new System.Drawing.Point(1186, 114);
-            this.PkEnd.Name = "PkEnd";
-            this.PkEnd.Size = new System.Drawing.Size(67, 17);
-            this.PkEnd.TabIndex = 38;
-            this.PkEnd.Text = "End Date";
-            // 
-            // AgencyComm
-            // 
-            this.AgencyComm.AutoSize = true;
-            this.AgencyComm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AgencyComm.Location = new System.Drawing.Point(1186, 157);
-            this.AgencyComm.Name = "AgencyComm";
-            this.AgencyComm.Size = new System.Drawing.Size(134, 17);
-            this.AgencyComm.TabIndex = 39;
-            this.AgencyComm.Text = "Agency Commission";
-            // 
-            // txtPkDesc
-            // 
-            this.txtPkDesc.Location = new System.Drawing.Point(717, 157);
-            this.txtPkDesc.Name = "txtPkDesc";
-            this.txtPkDesc.Size = new System.Drawing.Size(100, 20);
-            this.txtPkDesc.TabIndex = 40;
-            // 
-            // txtPkStart
-            // 
-            this.txtPkStart.Location = new System.Drawing.Point(980, 114);
-            this.txtPkStart.Name = "txtPkStart";
-            this.txtPkStart.Size = new System.Drawing.Size(100, 20);
-            this.txtPkStart.TabIndex = 41;
-            // 
-            // txtBasePrice
-            // 
-            this.txtBasePrice.Location = new System.Drawing.Point(980, 157);
-            this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(100, 20);
-            this.txtBasePrice.TabIndex = 42;
-            // 
-            // txtPkEnd
-            // 
-            this.txtPkEnd.Location = new System.Drawing.Point(1337, 114);
-            this.txtPkEnd.Name = "txtPkEnd";
-            this.txtPkEnd.Size = new System.Drawing.Size(100, 20);
-            this.txtPkEnd.TabIndex = 43;
-            // 
-            // txtAgencyComm
-            // 
-            this.txtAgencyComm.Location = new System.Drawing.Point(1337, 154);
-            this.txtAgencyComm.Name = "txtAgencyComm";
-            this.txtAgencyComm.Size = new System.Drawing.Size(100, 20);
-            this.txtAgencyComm.TabIndex = 44;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(859, 36);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(305, 119);
+            this.dataGridView3.TabIndex = 38;
             // 
             // frmPackages
             // 
@@ -805,26 +724,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1582, 548);
-            this.Controls.Add(this.txtAgencyComm);
-            this.Controls.Add(this.txtPkEnd);
-            this.Controls.Add(this.txtBasePrice);
-            this.Controls.Add(this.txtPkStart);
-            this.Controls.Add(this.txtPkDesc);
-            this.Controls.Add(this.AgencyComm);
-            this.Controls.Add(this.PkEnd);
-            this.Controls.Add(this.PkBasePrice);
-            this.Controls.Add(this.PkStart);
-            this.Controls.Add(this.PkDescription);
+            this.Controls.Add(this.dataGridView3);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.txtDelete);
             this.Controls.Add(this.txtUpdate);
             this.Controls.Add(this.txtAdd);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.PkName);
-            this.Controls.Add(this.lblPkID);
-            this.Controls.Add(this.txtPkgName);
-            this.Controls.Add(this.txtPackageId);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblSorted);
@@ -840,6 +749,8 @@
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -852,10 +763,6 @@
         private System.Windows.Forms.Label lblSorted;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox txtPackageId;
-        private System.Windows.Forms.TextBox txtPkgName;
-        private System.Windows.Forms.Label lblPkID;
-        private System.Windows.Forms.Label PkName;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
         private System.Windows.Forms.ToolTip toolTip3;
@@ -913,15 +820,9 @@
         private System.Windows.Forms.TextBox txtPackId3;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox txtPackName3;
-        private System.Windows.Forms.Label PkDescription;
-        private System.Windows.Forms.Label PkStart;
-        private System.Windows.Forms.Label PkBasePrice;
-        private System.Windows.Forms.Label PkEnd;
-        private System.Windows.Forms.Label AgencyComm;
-        private System.Windows.Forms.TextBox txtPkDesc;
-        private System.Windows.Forms.TextBox txtPkStart;
-        private System.Windows.Forms.TextBox txtBasePrice;
-        private System.Windows.Forms.TextBox txtPkEnd;
-        private System.Windows.Forms.TextBox txtAgencyComm;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

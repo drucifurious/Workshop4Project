@@ -27,10 +27,10 @@ namespace DataLayer
                 {
                     Products_suppliers s = new Products_suppliers();
                     
-                   // s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
+                    s.ProductSupplierId = Convert.ToInt32(reader["ProductSupplierId"].ToString());
 
-                    //s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
-                    //s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
+                    s.ProductId = Convert.ToInt32(reader["ProductId"].ToString());                   
+                
                       s.SupplierId = Convert.ToInt32(reader["SupplierId"].ToString());
                     results.Add(s);
              
@@ -105,11 +105,11 @@ namespace DataLayer
                 connection.Close();
             }
             return results;
-
         }
+
 
        
 
 
-        }
+    }
 }

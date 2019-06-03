@@ -24,7 +24,7 @@ namespace Workshop4
         private void Packages_Load(object sender, EventArgs e)
         {
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.OldLace;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
 
@@ -39,6 +39,10 @@ namespace Workshop4
             dataGridView1.RowTemplate.Height = 65;
             
            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
+            dataGridView2.DataSource = DataLayer.ProductDB.GetProduct();
+            dataGridView3.DataSource = DataLayer.Product_SuppliersDB.GetProduct_Suppliers();
+            dataGridView3.DataSource = DataLayer.Product_SuppliersDB.orderby("ProductId");
+
 
         }
 
@@ -62,9 +66,9 @@ namespace Workshop4
         private void Add_button_Click(object sender, EventArgs e)
         {
 
-            if ( txtPkName1.Text == ""|| txtStartDate1.Text=="" || txtEndDate1.Text=="" ||txtDescription1.Text==""|| txtBasePrice1.Text==""|| txtAgencyCommission.Text=="")
+            if ( txtPkName1.Text == ""||txtDescription1.Text=="")
             {
-                MessageBox.Show("All Fields must be filled");
+                MessageBox.Show("Package Name and Package Description cannot be null");
             }
             else
             {
@@ -76,17 +80,25 @@ namespace Workshop4
                     DateTime EndDate = Convert.ToDateTime(txtEndDate1.Text);
                     double BasePrice = Convert.ToDouble(txtBasePrice1.Text);
                     double AgencyCommission = Convert.ToDouble(txtAgencyCommission.Text);
-
-                    int qq1 = DataLayer.PackageDB.AddPackage(txtPkName1.Text,StartDate, EndDate, txtDescription1.Text, BasePrice, AgencyCommission);
-                    if (qq1 > 0)
+                    if (EndDate < StartDate || AgencyCommission > BasePrice)
                     {
-                        MessageBox.Show("insert successful!");
-                        dataGridView1.DataSource = DataLayer.PackageDB.GetPackages();
+                        MessageBox.Show("the Package End Date must be later than Package Start Date " +
+                              "  and the Agency Commission cannot be greater than the Base Price");
+                        return;
                     }
-                    else
-                    { MessageBox.Show("insert not successful!"); }
-                    int i = dataGridView1.Rows.Count - 1;
-                    dataGridView1.CurrentCell = dataGridView1[0, i];
+                    else            
+                    {
+                        int qq1 = DataLayer.PackageDB.AddPackage(txtPkName1.Text, StartDate, EndDate, txtDescription1.Text, BasePrice, AgencyCommission);
+                        if (qq1 > 0)
+                        {
+                            MessageBox.Show("insert successful!");
+                            dataGridView1.DataSource = DataLayer.PackageDB.GetPackages();
+                        }
+                        else
+                        { MessageBox.Show("insert not successful!"); }
+                        int i = dataGridView1.Rows.Count - 1;
+                        dataGridView1.CurrentCell = dataGridView1[0, i];
+                    }
                 }
                 catch (DataException ex)
                 {
@@ -163,7 +175,7 @@ namespace Workshop4
             else
             {
                 DateTime StartDate = Convert.ToDateTime(txtStartDate2.Text);
-                DateTime EndDate = Convert.ToDateTime(txtStartDate2.Text);
+                DateTime EndDate = Convert.ToDateTime(txtEndDate2.Text);
                 double BasePrice = Convert.ToDouble(txtBasePrice2.Text);
                 double AgencyCommission = Convert.ToDouble(txtAgencyComm2.Text);
                 int qq1 = DataLayer.PackageDB.UpdaPackage (Convert.ToInt32(txtPackId2.Text),  txtPackName2.Text, StartDate, EndDate, txtDescription2.Text, BasePrice, AgencyCommission);
@@ -197,7 +209,42 @@ namespace Workshop4
             txtAgencyComm2.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
 
 
+        
+
+       
         }
+
+        private void txtAdd_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel1.Visible = true;
+        }
+
+        private void txtUpdate_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel2.Visible = true;
+        }
+
+        private void txtDelete_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel3.Visible = true;
+        }
+
+        private void txtHide1_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel1.Visible = false;
+        }
+
+        private void textBox11_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
+        private void textBox19_MouseClick(object sender, MouseEventArgs e)
+        {
+            panel3.Visible = false;
+        }
+
+      
     }
 
         }

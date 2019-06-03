@@ -20,7 +20,7 @@ namespace Workshop4
         private void PackagesProductsSuppliers_Load(object sender, EventArgs e)
         {
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.OldLace;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
             //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
