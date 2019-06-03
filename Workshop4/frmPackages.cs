@@ -27,23 +27,18 @@ namespace Workshop4
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.CadetBlue;
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor = Color.Black;
 
-            //dataGridView1.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridView1.ColumnHeadersHeight = 35;
 
-
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            //Font
-            // Dim font As New Font(dataGridView1.ColumnHeadersDefaultCellStyle.Font, FontStyle.Bold);
-            //dataGridView1.ColumnHeadersDefaultCellStyle.Font = font;
-
+          
             dataGridView1.DataSource = DataLayer.PackageDB.GetPackages();
             dataGridView1.Columns[0].Width = 100;
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.RowTemplate.Height = 65;
-            //label3.Text = dataGridView1.CurrentCell.Value.ToString();
-            //dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
+            
+           dataGridView1.DataSource = DataLayer.PackageDB.orderby("PackageId");
 
         }
 
@@ -65,16 +60,14 @@ namespace Workshop4
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dataGridView1.CurrentCell.RowIndex;
-            txtPackageId.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
-            //    int txtPkId1= Convert.ToInt32(txtPackageId);
-            txtPkgName.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
-           //panel1.txtPkName1.Text = txtPakName;
-            // = dataGridView1.Rows[index].Cells[2].Value.ToString();
-            txtPkStart.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
-            txtPkEnd.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
-            txtPkDesc.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
-            txtBasePrice.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
-            txtAgencyComm.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
+            txtPackId2.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+       
+            txtPackName2.Text = dataGridView1.Rows[index].Cells[1].Value.ToString();
+           txtStartDate2.Text = dataGridView1.Rows[index].Cells[2].Value.ToString();
+            txtEndDate2.Text = dataGridView1.Rows[index].Cells[3].Value.ToString();
+            txtDescription2.Text = dataGridView1.Rows[index].Cells[4].Value.ToString();
+            txtBasePrice2.Text = dataGridView1.Rows[index].Cells[5].Value.ToString();
+            txtAgencyComm2.Text = dataGridView1.Rows[index].Cells[6].Value.ToString();
 
         }
         
@@ -82,7 +75,7 @@ namespace Workshop4
         private void Add_button_Click(object sender, EventArgs e)
         {
 
-            if (txtPkId1.Text == "" || txtPkName1.Text == ""|| txtStartDate1.Text=="" || txtEndDate1.Text=="" ||txtDescription1.Text==""|| txtBasePrice1.Text==""|| txtAgencyCommission.Text=="")
+            if ( txtPkName1.Text == ""|| txtStartDate1.Text=="" || txtEndDate1.Text=="" ||txtDescription1.Text==""|| txtBasePrice1.Text==""|| txtAgencyCommission.Text=="")
             {
                 MessageBox.Show("All Fields must be filled");
             }
@@ -91,8 +84,13 @@ namespace Workshop4
                 //catch error
                 try
                 {
-                    int ID = Convert.ToInt32(txtPkId1.Text);
-                    int qq1 = DataLayer.PackageDB.AddPackage(txtPkName1.Text, txtStartDate1.Text, txtEndDate1.Text, txtDescription1.Text, txtBasePrice1.Text, txtAgencyCommission.Text);
+                    //int ID = Convert.ToInt32(txtPkId1.Text);
+                    DateTime StartDate = Convert.ToDateTime(txtStartDate1.Text);
+                    DateTime EndDate = Convert.ToDateTime(txtEndDate1.Text);
+                    double BasePrice = Convert.ToDouble(txtBasePrice1.Text);
+                    double AgencyCommission = Convert.ToDouble(txtAgencyCommission.Text);
+
+                    int qq1 = DataLayer.PackageDB.AddPackage(txtPkName1.Text,StartDate, EndDate, txtDescription1.Text, BasePrice, AgencyCommission);
                     if (qq1 > 0)
                     {
                         MessageBox.Show("insert successful!");
@@ -135,9 +133,9 @@ namespace Workshop4
                     if (qq1 > 0)
                     {
                         MessageBox.Show("Delete successful!");
-                        dataGridView1.DataSource = DataLayer.SupplierDB.GetSuppliers();
+                        dataGridView1.DataSource = DataLayer.PackageDB.GetPackages();
                         if (index == dataGridView1.Rows.Count)
-                        { dataGridView1.CurrentCell = dataGridView1.Rows[index - 1].Cells[0]; }
+                        { dataGridView1.CurrentCell = dataGridView1.Rows[index-1].Cells[0]; }
                         else
                         { dataGridView1.CurrentCell = dataGridView1.Rows[index].Cells[0]; }
                     }
@@ -169,13 +167,19 @@ namespace Workshop4
         }
         private void update_button_Click(object sender, EventArgs e)
         {
-            if (txtPkId1.Text == "")
+            int index = dataGridView1.CurrentCell.RowIndex;
+            txtPackId2.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
+            if (txtPackId2.Text == "")
             {
                 MessageBox.Show("Package ID must  be filled");
             }
             else
             {
-                int qq1 = DataLayer.PackageDB.UpdaPackage(Convert.ToInt32(lblPakID.Text), lblPackageName.Text, txtStartDate1.Text, txtEndDate1.Text, txtDescription1.Text, txtBasePrice1.Text, txtAgencyCommission.Text);
+                DateTime StartDate = Convert.ToDateTime(txtStartDate2.Text);
+                DateTime EndDate = Convert.ToDateTime(txtStartDate2.Text);
+                double BasePrice = Convert.ToDouble(txtBasePrice2.Text);
+                double AgencyCommission = Convert.ToDouble(txtAgencyComm2.Text);
+                int qq1 = DataLayer.PackageDB.UpdaPackage (Convert.ToInt32(txtPackId2.Text),  txtPackName2.Text, StartDate, EndDate, txtDescription2.Text, BasePrice, AgencyCommission);
                 if (qq1 > 0)
                 {
                     MessageBox.Show("Update successful!");
@@ -224,7 +228,7 @@ namespace Workshop4
        
         private void txtPakName_TextChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PakName");
+            dataGridView1.DataSource = DataLayer.PackageDB.orderby("PkgName");
             Locate(txtPackageId.Text);
             int index = dataGridView1.CurrentCell.RowIndex;
             txtPackageId.Text = dataGridView1.Rows[index].Cells[0].Value.ToString();
