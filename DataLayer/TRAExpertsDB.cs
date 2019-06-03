@@ -11,11 +11,12 @@ namespace DataLayer
     {
         public static SqlConnection GetConnection()
         {
+            //Drew's local connection
             SqlConnection connection = new SqlConnection();
-            string ConnectionString = "Data Source=DESKTOP-B52KRSQ;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
+            string ConnectionString = "Data Source=MCJESUS\\SQLEXPRESS;" + "Initial Catalog=TravelExperts;" + "Integrated Security=true;";
             connection.ConnectionString = ConnectionString;
 
-            // Remote DB
+            //Remote DB
             //SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             //builder.DataSource = "workshop4.database.windows.net";
             //builder.UserID = "Ye";

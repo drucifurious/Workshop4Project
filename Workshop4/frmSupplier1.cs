@@ -192,6 +192,7 @@ namespace Workshop4
         //display the detail of the selected record
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+            
             dataGridView1.DataSource = DataLayer.SupplierDB.orderby("SupplierId");
             if (textBox1.Text == "")
             {
